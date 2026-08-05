@@ -201,6 +201,20 @@
             font-family: 'Fredoka One', cursive;
         }
 
+        .day-tour-name {
+            background: #1a2a6c;
+            color: white;
+            padding: 8px 28px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 4px solid #ffc857;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 0 #0f1a44;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .day-date-tag {
             background: #2f4858;
             color: white;
@@ -423,6 +437,7 @@
             .grace-badge .avatar { width: 40px; height: 40px; }
             .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .modal-body .time-badge { flex: 0 0 100px; }
+            .day-tour-name { font-size: 0.9rem; padding: 4px 16px; }
         }
     </style>
 </head>
@@ -465,10 +480,11 @@
         </div>
     </div>
 
-    <!-- ===== DAY 1 – THURSDAY, AUG 20 ===== -->
+    <!-- ===== DAY 1 – N SEOUL TOWER ===== -->
     <div class="day-card" onclick="openModal('modal-day1')">
         <div class="day-header">
             <span class="day-num">DAY 1</span>
+            <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
             <span class="day-date-tag">Thursday, Aug 20, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -479,49 +495,52 @@
         </div>
     </div>
 
-    <!-- ===== DAY 2 – FRIDAY, AUG 21 ===== -->
+    <!-- ===== DAY 2 – NAMI ISLAND TOUR ===== -->
     <div class="day-card" onclick="openModal('modal-day2')">
         <div class="day-header">
             <span class="day-num">DAY 2</span>
+            <span class="day-tour-name"><i class="fas fa-tree"></i> Nami Island Tour</span>
             <span class="day-date-tag">Friday, Aug 21, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
         <div class="day-preview">
-            <span><i class="fas fa-tree"></i> Nami Island Tour</span>
             <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
             <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+            <span><i class="fas fa-camera"></i> 📸 Scenic spots</span>
         </div>
     </div>
 
-    <!-- ===== DAY 3 – SATURDAY, AUG 22 ===== -->
+    <!-- ===== DAY 3 – GANGNAM EXPERIENCE ===== -->
     <div class="day-card" onclick="openModal('modal-day3')">
         <div class="day-header">
             <span class="day-num">DAY 3</span>
+            <span class="day-tour-name"><i class="fas fa-city"></i> Gangnam Experience</span>
             <span class="day-date-tag">Saturday, Aug 22, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
         <div class="day-preview">
-            <span><i class="fas fa-city"></i> Gangnam Experience</span>
             <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
             <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+            <span><i class="fas fa-palace"></i> Suwon Fortress</span>
         </div>
     </div>
 
-    <!-- ===== DAY 4 – SUNDAY, AUG 23 ===== -->
+    <!-- ===== DAY 4 – JONGNO HISTORICAL TOUR ===== -->
     <div class="day-card" onclick="openModal('modal-day4')">
         <div class="day-header">
             <span class="day-num">DAY 4</span>
+            <span class="day-tour-name"><i class="fas fa-walking"></i> Jongno Historical Tour</span>
             <span class="day-date-tag">Sunday, Aug 23, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
         <div class="day-preview">
-            <span><i class="fas fa-walking"></i> Jongno Historical Tour</span>
             <span><i class="fas fa-vest"></i> Hanbok Rental</span>
+            <span><i class="fas fa-temple"></i> Gyeongbokgung</span>
             <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
         </div>
     </div>
 
-    <!-- ===== DAY 5 – MONDAY, AUG 24 ===== -->
+    <!-- ===== DAY 5 – MONDAY, AUG 24 (DEPARTURE) ===== -->
     <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-num">DAY 5</span>
@@ -546,7 +565,7 @@
 <!-- MODALS -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 0 – WEDNESDAY, AUG 19 -->
+<!-- MODAL DAY 0 -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
     <div class="modal-content">
         <div class="modal-header">
@@ -561,11 +580,11 @@
     </div>
 </div>
 
-<!-- MODAL DAY 1 – THURSDAY, AUG 20 -->
+<!-- MODAL DAY 1 – N SEOUL TOWER -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 1 · Thursday, Aug 20, 2026</span>
+            <span class="modal-title">📅 DAY 1 · N Seoul Tower · Thursday, Aug 20, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day1')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -580,11 +599,11 @@
     </div>
 </div>
 
-<!-- MODAL DAY 2 – FRIDAY, AUG 21 -->
+<!-- MODAL DAY 2 – NAMI ISLAND TOUR -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 2 · Friday, Aug 21, 2026</span>
+            <span class="modal-title">📅 DAY 2 · Nami Island Tour · Friday, Aug 21, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -599,11 +618,11 @@
     </div>
 </div>
 
-<!-- MODAL DAY 3 – SATURDAY, AUG 22 -->
+<!-- MODAL DAY 3 – GANGNAM EXPERIENCE -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 3 · Saturday, Aug 22, 2026</span>
+            <span class="modal-title">📅 DAY 3 · Gangnam Experience · Saturday, Aug 22, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -618,11 +637,11 @@
     </div>
 </div>
 
-<!-- MODAL DAY 4 – SUNDAY, AUG 23 -->
+<!-- MODAL DAY 4 – JONGNO HISTORICAL TOUR -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 4 · Sunday, Aug 23, 2026</span>
+            <span class="modal-title">📅 DAY 4 · Jongno Historical Tour · Sunday, Aug 23, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day4')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -637,7 +656,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 5 – MONDAY, AUG 24 -->
+<!-- MODAL DAY 5 – DEPARTURE -->
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
     <div class="modal-content">
         <div class="modal-header">
