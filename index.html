@@ -418,6 +418,7 @@
             margin-top: 10px;
         }
 
+        /* ===== NEW FOOTER WITH CONTACT ===== */
         .footer-modern {
             background: #d94f7a;
             color: white;
@@ -431,12 +432,50 @@
             border: 5px solid #ffd966;
             box-shadow: 0 10px 0 #8f2d4e;
             font-family: 'Montserrat', sans-serif;
+            gap: 15px;
         }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-contact .contact-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .footer-contact .contact-avatar:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .footer-contact .contact-name {
+            color: #fff5d6;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            border-bottom: 3px solid #ffd966;
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
+        }
+        .footer-contact .contact-name:hover {
+            color: #ffffff;
+        }
+
         .footer-handle {
             background: #1a2a6c;
             padding: 12px 40px;
             border-radius: 60px;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             border: 3px solid #ffc857;
             font-family: 'Fredoka One', cursive;
@@ -450,6 +489,9 @@
             .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .modal-body .time-badge { flex: 0 0 100px; }
             .day-tour-name { font-size: 0.9rem; padding: 4px 16px; }
+            .footer-contact .contact-avatar { width: 40px; height: 40px; }
+            .footer-contact .contact-name { font-size: 1rem; }
+            .footer-handle { font-size: 1.2rem; padding: 8px 20px; }
         }
     </style>
 </head>
@@ -479,11 +521,13 @@
         <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
     </div>
 
-    <!-- ===== DAY 0 – BYE MANILA ===== -->
+    <!-- ===== DAY CARDS ===== -->
+
+    <!-- DAY 0 – TO SEOUL -->
     <div class="day-card" onclick="openModal('modal-day0')">
         <div class="day-header">
             <span class="day-num">DAY 0</span>
-            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> DEPARTURE TO SEOUL</span>
+            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL</span>
             <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -493,11 +537,11 @@
         </div>
     </div>
 
-    <!-- ===== DAY 1 – N SEOUL TOWER ===== -->
+    <!-- DAY 1 – N SEOUL TOWER -->
     <div class="day-card" onclick="openModal('modal-day1')">
         <div class="day-header">
             <span class="day-num">DAY 1</span>
-            <span class="day-tour-name"><i class="fas fa-paris"></i> N Seoul Tower</span>
+            <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
             <span class="day-date-tag">Thursday, Aug 20, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -508,7 +552,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 2 – NAMI ISLAND TOUR ===== -->
+    <!-- DAY 2 – NAMI ISLAND TOUR -->
     <div class="day-card" onclick="openModal('modal-day2')">
         <div class="day-header">
             <span class="day-num">DAY 2</span>
@@ -523,7 +567,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 3 – GANGNAM EXPERIENCE ===== -->
+    <!-- DAY 3 – GANGNAM EXPERIENCE -->
     <div class="day-card" onclick="openModal('modal-day3')">
         <div class="day-header">
             <span class="day-num">DAY 3</span>
@@ -538,7 +582,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 4 – JONGNO HISTORICAL TOUR ===== -->
+    <!-- DAY 4 – JONGNO HISTORICAL TOUR -->
     <div class="day-card" onclick="openModal('modal-day4')">
         <div class="day-header">
             <span class="day-num">DAY 4</span>
@@ -547,17 +591,17 @@
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
         <div class="day-preview">
+            <span><i class="fas fa-vest"></i> Hanbok Rental</span>
             <span><i class="fas fa-temple"></i> Gyeongbokgung</span>
-                        <span><i class="fas fa-vest"></i> Hanbok Rental(optional)</span>
             <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
         </div>
     </div>
 
-    <!-- ===== DAY 5 – BYE SEOUL ===== -->
+    <!-- DAY 5 – JAL GAYO -->
     <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-num">DAY 5</span>
-            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE</span>
+            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE </span>
             <span class="day-date-tag">Monday, Aug 24, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -567,10 +611,16 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- ===== NEW FOOTER with CONTACT ===== -->
     <div class="footer-modern">
-        <span><i class="fas fa-exclamation-triangle"></i> *rate may change without prior notice · 30k PHP est. pax</span>
-        <span class="footer-handle">@theGFsadvise</span>
+        <div class="footer-contact">
+            <span style="font-size: 1.2rem;">📩 questions? contact:</span>
+            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
+            </a>
+            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
+        </div>
+        <div class="footer-handle">✨ GF: Go Find. ✨</div>
     </div>
 
 </div> <!-- end pop-card -->
@@ -579,11 +629,11 @@
 <!-- MODALS -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 0 – GOING TO SEOUL -->
+<!-- MODAL DAY 0 – ANNYEONG -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">🛬 DAY 0 · GOING TO SEOUL · Wednesday, Aug 19, 2026</span>
+            <span class="modal-title">🛬 DAY 0 · TO SEOUL · Wednesday, Aug 19, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day0')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -621,7 +671,7 @@
             <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://www.klook.com/activity/8962-nami-island-petite-france-railbike-garden-of-morning-calm-day-tour-seoul/?spm=SearchResult.SearchResult_LIST&clickId=18614e8598" target="_blank" class="map-link">Nami Island Tour (link here)</a></span></div>
+            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://www.klook.com/activity/8962-nami-island-petite-france-railbike-garden-of-morning-calm-day-tour-seoul/?spm=SearchResult.SearchResult_LIST&clickId=18614e8598" target="_blank" class="map-link">Nami Island Tour (Klook)</a></span></div>
             <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Meet up at Myeongdong Station Exit 3</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1751262716/ieyuoar2uapqcygjh8ch.jpg');"></span> Nami Island</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710086/awvzamvzuongpfdjj656.jpg');"></span> Alpaca World 🦙</span></div>
@@ -645,7 +695,7 @@
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/3084942/pexels-photo-3084942.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Suwon Hwaseong Fortress</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/4223252/pexels-photo-4223252.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Hwaseong Palace</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/1631665/pexels-photo-1631665.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Starfield Suwon Library</span></div>
-            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/2487979/pexels-photo-2487979.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Korean Folk Village (optional)</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/2487979/pexels-photo-2487979.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Korean Folk Village</span></div>
             <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-flag-checkered"></i> End of Tour</span></div>
         </div>
     </div>
@@ -674,7 +724,7 @@
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title"> DAY 5 · DEPARTURE · Monday, Aug 24, 2026</span>
+            <span class="modal-title">🙏 DAY 5 · DEPARTURE · Monday, Aug 24, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day5')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
