@@ -215,6 +215,18 @@
             letter-spacing: 1px;
         }
 
+        .day-tour-name.special {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-color: #ffeaa7;
+            box-shadow: 0 4px 0 #a53d1a;
+        }
+
+        .day-tour-name.departure {
+            background: linear-gradient(135deg, #2e86de, #1e3799);
+            border-color: #82ccdd;
+            box-shadow: 0 4px 0 #0f2b6b;
+        }
+
         .day-date-tag {
             background: #2f4858;
             color: white;
@@ -463,14 +475,15 @@
     <!-- INCLUSIONS -->
     <div class="inclusion-strip">
         <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-        <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
+        <div class="inc-item"><i class="fas fa-taxi"></i> Uber transfers</div>
         <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
     </div>
 
-    <!-- ===== DAY 0 – WEDNESDAY, AUG 19 ===== -->
+    <!-- ===== DAY 0 – TO SEOUL 🛬 ===== -->
     <div class="day-card" onclick="openModal('modal-day0')">
         <div class="day-header">
             <span class="day-num">DAY 0</span>
+            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
             <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -540,10 +553,11 @@
         </div>
     </div>
 
-    <!-- ===== DAY 5 – MONDAY, AUG 24 (DEPARTURE) ===== -->
+    <!-- ===== DAY 5 – DEPARTURE 🙏 ===== -->
     <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-num">DAY 5</span>
+            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE 🙏</span>
             <span class="day-date-tag">Monday, Aug 24, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -565,11 +579,11 @@
 <!-- MODALS -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 0 -->
+<!-- MODAL DAY 0 – TO SEOUL -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 0 · Wednesday, Aug 19, 2026</span>
+            <span class="modal-title">🛬 DAY 0 · TO SEOUL · Wednesday, Aug 19, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day0')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -584,7 +598,7 @@
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 1 · N Seoul Tower · Thursday, Aug 20, 2026</span>
+            <span class="modal-title">🗼 DAY 1 · N Seoul Tower · Thursday, Aug 20, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day1')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -603,7 +617,7 @@
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 2 · Nami Island Tour · Friday, Aug 21, 2026</span>
+            <span class="modal-title">🌳 DAY 2 · Nami Island Tour · Friday, Aug 21, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -622,7 +636,7 @@
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 3 · Gangnam Experience · Saturday, Aug 22, 2026</span>
+            <span class="modal-title">🏙️ DAY 3 · Gangnam Experience · Saturday, Aug 22, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -641,7 +655,7 @@
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 4 · Jongno Historical Tour · Sunday, Aug 23, 2026</span>
+            <span class="modal-title">🏯 DAY 4 · Jongno Historical Tour · Sunday, Aug 23, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day4')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
@@ -660,7 +674,7 @@
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">📅 DAY 5 · Monday, Aug 24, 2026</span>
+            <span class="modal-title">🙏 DAY 5 · DEPARTURE · Monday, Aug 24, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day5')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
