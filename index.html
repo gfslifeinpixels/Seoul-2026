@@ -47,34 +47,38 @@
             100% { transform: translateY(0px); }
         }
 
-        /* ===== STICKY HEADER ===== */
-        .sticky-header {
+        /* ===== STICKY TITLE ONLY ===== */
+        .sticky-title {
             position: sticky;
             top: 0;
             z-index: 100;
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
-            border-radius: 40px 40px 30px 30px;
-            padding: 10px 0 5px 0;
+            border-radius: 40px 40px 20px 20px;
+            padding: 8px 15px 5px 15px;
             margin: -10px -10px 0 -10px;
-            box-shadow: 0 8px 25px rgba(255, 80, 120, 0.15);
-            border-bottom: 4px solid #ffd966;
+            box-shadow: 0 6px 20px rgba(255, 80, 120, 0.12);
+            border-bottom: 3px solid #ffd966;
         }
 
-        .sticky-header .header {
-            padding: 15px 25px 10px 25px;
-            margin-bottom: 5px;
+        .sticky-title .title-only {
+            padding: 8px 20px 5px 20px;
+            margin-bottom: 0;
         }
 
-        .sticky-header .inclusion-strip {
-            padding: 12px 20px;
-            margin-bottom: 5px;
-            border-radius: 40px;
+        .sticky-title .title-only h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            font-family: 'Fredoka One', cursive;
+            color: #1a2a6c;
+            text-shadow: 4px 4px 0 #ffec9e, 6px 6px 0 #ffffffb0;
+            line-height: 1.1;
         }
 
+        /* ===== HEADER (now with smaller price) ===== */
         .header {
             background: linear-gradient(135deg, #ffb3c6, #ff99c8);
-            padding: 25px 35px;
+            padding: 20px 30px 15px 30px;
             border-radius: 70px 20px 70px 20px;
             border: 5px solid white;
             box-shadow: 0 12px 0 #d94f7a, 0 20px 20px -10px #b34164;
@@ -82,15 +86,41 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            margin-top: 0;
         }
 
-        .header h1 {
+        .header-left {
+            flex: 1;
+        }
+
+        .header-left h1 {
             font-size: 3.2rem;
             font-weight: 900;
             font-family: 'Fredoka One', cursive;
             color: #1a2a6c;
             text-shadow: 4px 4px 0 #ffec9e, 6px 6px 0 #ffffffb0;
             line-height: 1.1;
+        }
+
+        /* ===== PRICE - NOW SMALLER ===== */
+        .price-small {
+            background: #ffc44f;
+            padding: 10px 22px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #1a2a6c;
+            border: 4px solid white;
+            box-shadow: 0 5px 0 #d45d00;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            min-width: 140px;
+        }
+        .price-small small {
+            font-size: 0.85rem;
+            display: block;
+            color: #5f3a0a;
+            font-weight: 700;
         }
 
         .grace-badge {
@@ -106,7 +136,7 @@
             border: 4px solid #ffd966;
             box-shadow: 0 6px 0 #a52d54;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 4px;
+            margin-top: 6px;
             transition: transform 0.3s ease;
         }
         .grace-badge:hover {
@@ -129,17 +159,18 @@
         .date-badge {
             background: #ffdc5e;
             color: #1e3163;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            padding: 8px 25px;
+            padding: 6px 22px;
             border-radius: 60px;
             border: 4px solid white;
-            box-shadow: 0 6px 0 #c52155;
+            box-shadow: 0 5px 0 #c52155;
             display: inline-block;
             margin-top: 4px;
             font-family: 'Montserrat', sans-serif;
         }
 
+        /* ===== INCLUSIONS (NOT FROZEN) ===== */
         .inclusion-strip {
             background: #c1f0ff;
             border-radius: 50px;
@@ -150,6 +181,7 @@
             justify-content: space-between;
             border: 4px solid #fc8eb6;
             box-shadow: inset 0 -5px 0 #aad0f5, 0 10px 10px #fac0d9;
+            margin: 15px 0 5px 0;
         }
 
         .inc-item {
@@ -173,7 +205,7 @@
 
         /* ===== MAIN CONTENT (scrollable) ===== */
         .scroll-content {
-            padding-top: 10px;
+            padding-top: 5px;
         }
 
         .day-card {
@@ -269,27 +301,6 @@
             padding: 3px 12px;
             border-radius: 40px;
             border: 2px solid #bb651e;
-        }
-
-        /* ===== PRICE BAR (before footer) ===== */
-        .price-bar {
-            background: #ffc44f;
-            padding: 16px 30px;
-            border-radius: 70px;
-            font-weight: 900;
-            font-size: 2.2rem;
-            color: #1a2a6c;
-            border: 5px solid white;
-            box-shadow: 0 8px 0 #d45d00;
-            text-align: center;
-            margin: 30px 0 20px 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .price-bar small {
-            font-size: 1.2rem;
-            display: block;
-            color: #5f3a0a;
-            font-weight: 700;
         }
 
         /* ===== MODAL OVERLAY ===== */
@@ -451,7 +462,7 @@
             margin-top: 10px;
         }
 
-        /* ===== FOOTER with CONTACT ===== */
+        /* ===== FOOTER ===== */
         .footer-modern {
             background: #d94f7a;
             color: white;
@@ -525,16 +536,32 @@
             letter-spacing: 2px;
         }
 
+        /* ===== SUPER SMALL FOOTNOTE ===== */
+        .footnote {
+            text-align: center;
+            font-size: 0.6rem;
+            color: #8f6b6b;
+            margin-top: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .footnote i {
+            margin-right: 4px;
+            color: #d94f7a;
+        }
+
         @media (max-width:750px){
-            .header h1 { font-size: 2.2rem; }
-            .sticky-header .header { padding: 10px 15px; }
+            .sticky-title .title-only h1 { font-size: 2rem; }
+            .header-left h1 { font-size: 2.2rem; }
+            .price-small { font-size: 1.1rem; padding: 8px 16px; min-width: 100px; }
+            .price-small small { font-size: 0.7rem; }
             .inclusion-strip { padding: 10px 15px; gap: 8px; justify-content: center; }
             .inc-item { font-size: 0.8rem; padding: 4px 12px; }
             .grace-badge { font-size: 0.9rem; padding: 4px 12px 4px 8px; }
             .grace-badge .avatar { width: 32px; height: 32px; }
             .date-badge { font-size: 1rem; padding: 6px 16px; }
-            .price-bar { font-size: 1.6rem; padding: 12px 20px; }
-            .price-bar small { font-size: 1rem; }
             .day-tour-name { font-size: 0.8rem; padding: 4px 12px; }
             .day-num { font-size: 1.4rem; padding: 4px 16px; }
             .footer-contact .contact-avatar { width: 40px; height: 40px; }
@@ -543,6 +570,8 @@
             .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .modal-body .time-badge { flex: 0 0 100px; }
             .pop-card { padding: 20px 15px; }
+            .header { padding: 15px 20px 10px 20px; }
+            .footnote { font-size: 0.5rem; }
         }
     </style>
 </head>
@@ -550,26 +579,32 @@
 
 <div class="pop-card">
 
-    <!-- ===== STICKY HEADER (top part fixed) ===== -->
-    <div class="sticky-header">
-        <!-- HEADER -->
-        <div class="header">
-            <div>
-                <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
-                <div class="grace-badge">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
-                    ✨ by Grace (@theGFsadvise) ✨
-                </div>
-                <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
-            </div>
+    <!-- ===== STICKY TITLE ONLY ===== -->
+    <div class="sticky-title">
+        <div class="title-only">
+            <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
         </div>
+    </div>
 
-        <!-- INCLUSIONS -->
-        <div class="inclusion-strip">
-            <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-            <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
-            <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
+    <!-- ===== HEADER (with smaller price) ===== -->
+    <div class="header">
+        <div class="header-left">
+            <div class="grace-badge">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
+                ✨ by Grace (@theGFsadvise) ✨
+            </div>
+            <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
         </div>
+        <div class="price-small">
+            ₱30,000 <small>per pax *</small>
+        </div>
+    </div>
+
+    <!-- ===== INCLUSIONS (NOT FROZEN) ===== -->
+    <div class="inclusion-strip">
+        <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
+        <div class="inc-item"><i class="fas fa-taxi"></i> Uber transfers</div>
+        <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
     </div>
 
     <!-- ===== SCROLLABLE CONTENT ===== -->
@@ -589,7 +624,7 @@
             </div>
         </div>
 
-        <!-- DAY 1 – NAMSAN TOWER -->
+        <!-- DAY 1 – N SEOUL TOWER -->
         <div class="day-card" onclick="openModal('modal-day1')">
             <div class="day-header">
                 <span class="day-num">DAY 1</span>
@@ -649,11 +684,11 @@
             </div>
         </div>
 
-        <!-- DAY 5 – DEPARTURE -->
+        <!-- DAY 5 – DEPARTURE 🙏 -->
         <div class="day-card" onclick="openModal('modal-day5')">
             <div class="day-header">
                 <span class="day-num">DAY 5</span>
-                <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE</span>
+                <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE 🙏</span>
                 <span class="day-date-tag">Monday, Aug 24, 2026</span>
                 <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
             </div>
@@ -663,24 +698,24 @@
             </div>
         </div>
 
-        <!-- ===== PRICE BAR (before footer) ===== -->
-        <div class="price-bar">
-            ₱30,000 <small>per pax *</small>
-        </div>
-
-        <!-- ===== FOOTER with CONTACT ===== -->
+        <!-- ===== FOOTER ===== -->
         <div class="footer-modern">
             <div class="footer-contact">
                 <span style="font-size: 1.1rem;">📩 questions? contact:</span>
                 <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
                     <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
                 </a>
-                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">👈🏼@theGFsadvise</a>
+                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
             </div>
             <div class="footer-handle">
-                ✨ GF: Go Find ✨
+                ✨ GF: Good Times, Far Places ✨
                 <span class="hashtag">#GeeExplores</span>
             </div>
+        </div>
+
+        <!-- ===== SUPER SMALL FOOTNOTE ===== -->
+        <div class="footnote">
+            <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on twin-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
         </div>
 
     </div> <!-- end scroll-content -->
