@@ -22,7 +22,6 @@
       justify-content: center;
       align-items: flex-start;
       background-color: #fce4ec;
-      /* MOVING BACKGROUND */
       background-image: url('https://media.easy-peasy.ai/045043b6-37d3-414c-aa75-b0d7b65a23de/9ee3aa97-91b1-47ec-8c84-b34ea3263a7c_medium.webp');
       background-size: cover;
       background-position: center;
@@ -105,104 +104,108 @@
       letter-spacing: -0.5px;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER - REDESIGNED ===== */
     .header {
       background: rgba(255, 179, 198, 0.92);
-      padding: 14px 18px 12px 18px;
+      padding: 16px 20px 14px 20px;
       border-radius: 50px 16px 50px 16px;
       border: 4px solid white;
       box-shadow: 0 8px 0 #d94f7a, 0 16px 16px -8px #b34164;
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .header-top {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
-      margin-top: 2px;
+      justify-content: space-between;
       gap: 10px;
-      backdrop-filter: blur(4px);
     }
 
-    .header-left {
-      flex: 1 1 180px;
-    }
-
-    .header-left h1 {
-      font-size: 1.8rem;
-      font-weight: 900;
-      font-family: 'Fredoka One', cursive;
-      color: #1a2a6c;
-      text-shadow: 3px 3px 0 #ffec9e, 4px 4px 0 #ffffffb0;
-      line-height: 1.1;
-    }
-
-    .price-small {
-      background: #ffc44f;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-weight: 900;
-      font-size: 1.2rem;
-      color: #1a2a6c;
-      border: 3px solid white;
-      box-shadow: 0 4px 0 #d45d00;
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      min-width: 100px;
-      flex-shrink: 0;
-    }
-    .price-small small {
-      font-size: 0.7rem;
-      display: block;
-      color: #5f3a0a;
-      font-weight: 700;
-    }
-
-    .grace-badge {
+    .header-title-group {
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+    }
+
+    .grace-badge-compact {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       background: #ff4080;
       color: white;
       font-size: 0.9rem;
       font-weight: 700;
-      padding: 4px 14px 4px 8px;
+      padding: 5px 18px 5px 5px;
       border-radius: 80px;
       border: 3px solid #ffd966;
       box-shadow: 0 4px 0 #a52d54;
       font-family: 'Montserrat', sans-serif;
-      margin-top: 4px;
       transition: transform 0.3s ease;
-      flex-wrap: wrap;
+      white-space: nowrap;
     }
-    .grace-badge:hover {
+    .grace-badge-compact:hover {
       transform: scale(1.02);
     }
-
-    .grace-badge .avatar {
-      width: 32px;
-      height: 32px;
+    .grace-badge-compact .avatar {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 2px solid white;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
-    .grace-badge .avatar:hover {
-      transform: rotate(-5deg) scale(1.05);
+    .grace-badge-compact .badge-text {
+      display: inline-block;
+      line-height: 1.2;
+      letter-spacing: 0.2px;
     }
 
-    .date-badge {
+    /* ===== DATE & PRICE - CENTERED, SAME SIZE ===== */
+    .header-info-center {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px 24px;
+      padding: 4px 0 2px 0;
+      width: 100%;
+    }
+
+    .date-badge-compact {
       background: #ffdc5e;
       color: #1e3163;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      padding: 4px 16px;
+      padding: 4px 20px;
       border-radius: 40px;
       border: 3px solid white;
       box-shadow: 0 4px 0 #c52155;
-      display: inline-block;
-      margin-top: 2px;
       font-family: 'Montserrat', sans-serif;
+      white-space: nowrap;
     }
 
+    .price-compact {
+      background: #ffc44f;
+      padding: 4px 20px;
+      border-radius: 40px;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: #1a2a6c;
+      border: 3px solid white;
+      box-shadow: 0 4px 0 #d45d00;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      white-space: nowrap;
+    }
+    /* No small block - everything inline */
+
+    /* ===== INCLUSIONS ===== */
     .inclusion-strip {
       background: rgba(193, 240, 255, 0.92);
       border-radius: 40px;
@@ -608,11 +611,13 @@
       .pop-card { padding: 16px 12px 14px; border-radius: 30px; }
       .sticky-title .title-only h1 { font-size: 1.5rem; }
       .header { padding: 12px 14px 10px; }
-      .header-left h1 { font-size: 1.4rem; }
-      .price-small { font-size: 1rem; padding: 4px 12px; min-width: 80px; }
-      .grace-badge { font-size: 0.75rem; padding: 3px 10px 3px 6px; }
-      .grace-badge .avatar { width: 26px; height: 26px; }
-      .date-badge { font-size: 0.8rem; padding: 3px 12px; }
+      .header-top { flex-direction: column; align-items: stretch; gap: 8px; }
+      .header-title-group { justify-content: center; }
+      .grace-badge-compact { font-size: 0.75rem; padding: 4px 12px 4px 4px; }
+      .grace-badge-compact .avatar { width: 28px; height: 28px; }
+      .header-info-center { gap: 10px 16px; }
+      .date-badge-compact { font-size: 0.85rem; padding: 3px 14px; }
+      .price-compact { font-size: 0.85rem; padding: 3px 14px; }
       .day-num { font-size: 1.1rem; padding: 2px 12px; }
       .day-tour-name { font-size: 0.7rem; padding: 3px 10px; }
       .day-date-tag { font-size: 0.7rem; padding: 2px 12px; }
@@ -634,8 +639,10 @@
     @media (max-width: 400px) {
       .pop-card { padding: 12px 8px 10px; }
       .sticky-title .title-only h1 { font-size: 1.2rem; }
-      .header-left h1 { font-size: 1.2rem; }
-      .price-small { font-size: 0.9rem; min-width: 70px; padding: 3px 10px; }
+      .grace-badge-compact { font-size: 0.65rem; padding: 3px 8px 3px 3px; }
+      .grace-badge-compact .avatar { width: 22px; height: 22px; }
+      .date-badge-compact { font-size: 0.75rem; padding: 2px 10px; }
+      .price-compact { font-size: 0.75rem; padding: 2px 10px; }
       .day-header { padding: 8px 10px; gap: 4px 8px; }
       .day-num { font-size: 0.9rem; padding: 1px 10px; }
     }
@@ -648,28 +655,32 @@
   <!-- STICKY TITLE -->
   <div class="sticky-title">
     <div class="title-only">
-      <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
+      <h1>🇰🇷 DIY SEOUL LAND ARRANGEMENT</h1>
     </div>
   </div>
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      <div class="grace-badge">
-        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
-        ✨ by Grace (@theGFsAdvise) ✨
+    <div class="header-top">
+      <div class="header-title-group">
+        <div class="grace-badge-compact">
+          <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
+          <span class="badge-text">✨ by Grace (@theGFsAdvise) ✨</span>
+        </div>
       </div>
-      <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
     </div>
-    <div class="price-small">
-      ₱30,000 <small>per pax *</small>
+
+    <!-- DATE & PRICE - CENTERED, SAME SIZE, INLINE PRICE -->
+    <div class="header-info-center">
+      <div class="date-badge-compact"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
+      <div class="price-compact">₱30,000 per pax *</div>
     </div>
   </div>
 
   <!-- INCLUSIONS -->
   <div class="inclusion-strip">
     <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-    <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
+    <div class="inc-item"><i class="fas fa-shuttle-van"></i> Airport transfers</div>
     <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
   </div>
 
@@ -680,7 +691,7 @@
     <div class="day-card" onclick="openModal('modal-day0')">
       <div class="day-header">
         <span class="day-num">DAY 0</span>
-        <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL</span>
+        <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
         <span class="day-date-tag">Wed, Aug 19</span>
         <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
       </div>
