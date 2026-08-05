@@ -26,7 +26,6 @@
             min-height: 100vh;
         }
 
-        /* MAIN CARD */
         .pop-card {
             max-width: 1200px;
             width: 100%;
@@ -47,7 +46,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* HEADER */
         .header {
             background: linear-gradient(135deg, #ffb3c6, #ff99c8);
             padding: 25px 35px;
@@ -71,17 +69,36 @@
         }
 
         .grace-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             background: #ff4080;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            padding: 10px 35px;
+            padding: 8px 25px 8px 15px;
             border-radius: 100px;
             border: 5px solid #ffd966;
             box-shadow: 0 8px 0 #a52d54;
-            display: inline-block;
-            margin-top: 8px;
             font-family: 'Montserrat', sans-serif;
+            margin-top: 8px;
+            transition: transform 0.3s ease;
+        }
+        .grace-badge:hover {
+            transform: scale(1.02);
+        }
+
+        .grace-badge .avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .grace-badge .avatar:hover {
+            transform: rotate(-5deg) scale(1.05);
         }
 
         .price-chip {
@@ -116,7 +133,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* INCLUSIONS STRIP */
         .inclusion-strip {
             background: #c1f0ff;
             border-radius: 50px;
@@ -149,7 +165,6 @@
             color: #d94f7a;
         }
 
-        /* DAY CARDS - Clickable */
         .day-card {
             margin: 25px 0;
             background: #ffffffda;
@@ -219,7 +234,6 @@
             border: 2px solid #bb651e;
         }
 
-        /* ===== MODAL OVERLAY ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -378,7 +392,6 @@
             margin-top: 10px;
         }
 
-        /* FOOTER */
         .footer-modern {
             background: #d94f7a;
             color: white;
@@ -406,6 +419,8 @@
         @media (max-width:750px){
             .header h1 { font-size: 2.6rem; }
             .price-chip { font-size: 1.4rem; padding: 12px 20px; }
+            .grace-badge { font-size: 1rem; padding: 6px 16px 6px 10px; }
+            .grace-badge .avatar { width: 40px; height: 40px; }
             .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .modal-body .time-badge { flex: 0 0 100px; }
         }
@@ -419,7 +434,10 @@
     <div class="header">
         <div>
             <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
-            <div class="grace-badge">✨ by Grace (@theGFsadvise) ✨</div>
+            <div class="grace-badge">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
+                ✨ by Grace (@theGFsadvise) ✨
+            </div>
             <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
         </div>
         <div class="price-chip">
@@ -430,11 +448,24 @@
     <!-- INCLUSIONS -->
     <div class="inclusion-strip">
         <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-        <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
+        <div class="inc-item"><i class="fas fa-taxi"></i> Uber transfers</div>
         <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
     </div>
 
-    <!-- ===== DAY 1 – THURSDAY, AUG 20 (CLICKABLE) ===== -->
+    <!-- ===== DAY 0 – WEDNESDAY, AUG 19 ===== -->
+    <div class="day-card" onclick="openModal('modal-day0')">
+        <div class="day-header">
+            <span class="day-num">DAY 0</span>
+            <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-plane"></i> Departure 12:20 AM</span>
+            <span><i class="fas fa-suitcase"></i> Check-in 9:20 PM</span>
+        </div>
+    </div>
+
+    <!-- ===== DAY 1 – THURSDAY, AUG 20 ===== -->
     <div class="day-card" onclick="openModal('modal-day1')">
         <div class="day-header">
             <span class="day-num">DAY 1</span>
@@ -442,13 +473,13 @@
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
         <div class="day-preview">
-            <span><i class="fas fa-plane"></i> Arrival 5:20 AM</span>
+            <span><i class="fas fa-plane-arrival"></i> Arrival 5:20 AM</span>
+            <span><i class="fas fa-utensils"></i> Lunch at Kyoja</span>
             <span><i class="fas fa-hotel"></i> Check-in 3:00 PM</span>
-            <span><i class="fas fa-utensils"></i> Myeongdong Night Market</span>
         </div>
     </div>
 
-    <!-- ===== DAY 2 – FRIDAY, AUG 21 (CLICKABLE) ===== -->
+    <!-- ===== DAY 2 – FRIDAY, AUG 21 ===== -->
     <div class="day-card" onclick="openModal('modal-day2')">
         <div class="day-header">
             <span class="day-num">DAY 2</span>
@@ -462,7 +493,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 3 – SATURDAY, AUG 22 (CLICKABLE) ===== -->
+    <!-- ===== DAY 3 – SATURDAY, AUG 22 ===== -->
     <div class="day-card" onclick="openModal('modal-day3')">
         <div class="day-header">
             <span class="day-num">DAY 3</span>
@@ -476,7 +507,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 4 – SUNDAY, AUG 23 (CLICKABLE) ===== -->
+    <!-- ===== DAY 4 – SUNDAY, AUG 23 ===== -->
     <div class="day-card" onclick="openModal('modal-day4')">
         <div class="day-header">
             <span class="day-num">DAY 4</span>
@@ -490,7 +521,7 @@
         </div>
     </div>
 
-    <!-- ===== DAY 5 – MONDAY, AUG 24 (CLICKABLE) ===== -->
+    <!-- ===== DAY 5 – MONDAY, AUG 24 ===== -->
     <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-num">DAY 5</span>
@@ -515,7 +546,22 @@
 <!-- MODALS -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 1 -->
+<!-- MODAL DAY 0 – WEDNESDAY, AUG 19 -->
+<div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 0 · Wednesday, Aug 19, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day0')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">9:20 PM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Airport Baggage Checkin</span></div>
+            <div class="time-activity-row"><span class="time-badge">12:20 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 12:20 AM (Aug 20)</span></div>
+            <div class="alert-note"><i class="fas fa-plane"></i> Flight departs early Thursday morning ✈️</div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DAY 1 – THURSDAY, AUG 20 -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
@@ -523,8 +569,6 @@
             <button class="modal-close" onclick="closeModal('modal-day1')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="time-activity-row"><span class="time-badge">9:20 PM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Baggage Checkin</span></div>
-            <div class="time-activity-row"><span class="time-badge">12:20 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 12:20 AM</span></div>
             <div class="time-activity-row"><span class="time-badge">5:20 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Incheon International Airport</span></div>
             <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-luggage"></i> Early Hotel Luggage Drop</span></div>
             <div class="time-activity-row"><span class="time-badge">7:30 AM</span> <span class="activity-text"><i class="fas fa-bus"></i> Namsan Shuttle Bus No. 01A or No. 5</span></div>
@@ -536,7 +580,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 2 -->
+<!-- MODAL DAY 2 – FRIDAY, AUG 21 -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
@@ -555,7 +599,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 3 -->
+<!-- MODAL DAY 3 – SATURDAY, AUG 22 -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
@@ -574,7 +618,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 4 -->
+<!-- MODAL DAY 4 – SUNDAY, AUG 23 -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
     <div class="modal-content">
         <div class="modal-header">
@@ -593,7 +637,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 5 -->
+<!-- MODAL DAY 5 – MONDAY, AUG 24 -->
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
     <div class="modal-content">
         <div class="modal-header">
