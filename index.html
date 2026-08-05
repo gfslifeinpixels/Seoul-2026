@@ -148,6 +148,7 @@
       font-family: 'Montserrat', sans-serif;
       transition: transform 0.3s ease;
       white-space: nowrap;
+      cursor: pointer;
     }
     .grace-badge-compact:hover {
       transform: scale(1.02);
@@ -166,7 +167,7 @@
       letter-spacing: 0.2px;
     }
 
-    /* ===== DATE & PRICE - CENTERED, SAME SIZE ===== */
+    /* ===== DATE & PRICE ===== */
     .header-info-center {
       display: flex;
       flex-wrap: wrap;
@@ -203,7 +204,6 @@
       font-family: 'Montserrat', sans-serif;
       white-space: nowrap;
     }
-    /* No small block - everything inline */
 
     /* ===== INCLUSIONS ===== */
     .inclusion-strip {
@@ -606,6 +606,167 @@
       color: #d94f7a;
     }
 
+    /* ===== ABOUT ME OVERLAY ===== */
+    .about-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 16px;
+      animation: fadeIn 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .about-overlay.active {
+      display: flex;
+    }
+
+    .about-content {
+      max-width: 750px;
+      width: 100%;
+      max-height: 92vh;
+      background: linear-gradient(145deg, rgba(30, 30, 60, 0.96), rgba(20, 20, 45, 0.96));
+      backdrop-filter: blur(16px);
+      border-radius: 40px 20px 40px 20px;
+      border: 2px solid #ffd700;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(255, 215, 0, 0.08);
+      padding: 0;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease;
+      position: relative;
+    }
+
+    .about-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 2px solid rgba(255, 215, 0, 0.15);
+      position: sticky;
+      top: 0;
+      background: rgba(20, 20, 45, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 5;
+      border-radius: 40px 20px 0 0;
+    }
+
+    .about-header .about-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: #ffd700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-header .about-title i {
+      color: #ff6b9d;
+      font-size: 1.6rem;
+    }
+
+    .about-close {
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid rgba(255, 215, 0, 0.2);
+      color: #ffd700;
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-close:hover {
+      background: rgba(255, 215, 0, 0.25);
+      transform: rotate(90deg);
+    }
+
+    .about-body {
+      padding: 24px 28px 30px;
+    }
+
+    .about-avatar-large {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ffd700;
+      object-fit: cover;
+      margin: 0 auto 20px auto;
+      display: block;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+    }
+
+    .about-body .story-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      color: #ffd700;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .about-body .story-sub {
+      text-align: center;
+      color: #c0b0e0;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .about-body .story-sub i {
+      color: #ff6b9d;
+    }
+
+    .story-text {
+      color: #d0c8e8;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .story-text p {
+      margin-bottom: 16px;
+    }
+
+    .story-text .highlight {
+      color: #ffd700;
+      font-weight: 700;
+    }
+
+    .story-text .highlight-pink {
+      color: #ff6b9d;
+      font-weight: 600;
+    }
+
+    .story-divider {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.3), transparent);
+      margin: 20px 0;
+    }
+
+    .story-tagline {
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      color: #ffd700;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .story-tagline i {
+      color: #ff6b9d;
+    }
+
     @media (max-width: 600px) {
       body { padding: 6px; }
       .pop-card { padding: 16px 12px 14px; border-radius: 30px; }
@@ -634,6 +795,16 @@
       .inc-item { font-size: 0.7rem; padding: 3px 10px; }
       .inc-item i { font-size: 0.9rem; }
       .click-hint { font-size: 0.6rem; padding: 1px 8px; }
+      .about-content { border-radius: 28px 14px 28px 14px; }
+      .about-header { padding: 12px 16px; }
+      .about-header .about-title { font-size: 1.1rem; }
+      .about-close { width: 34px; height: 34px; font-size: 1rem; }
+      .about-body { padding: 16px 16px 22px; }
+      .about-avatar-large { width: 90px; height: 90px; }
+      .about-body .story-title { font-size: 1.4rem; }
+      .story-text { font-size: 0.85rem; line-height: 1.7; }
+      .story-tagline { font-size: 1rem; }
+      .about-body .story-sub { font-size: 0.8rem; }
     }
 
     @media (max-width: 400px) {
@@ -663,14 +834,15 @@
   <div class="header">
     <div class="header-top">
       <div class="header-title-group">
-        <div class="grace-badge-compact">
+        <!-- CLICKABLE GRACE BADGE - OPENS ABOUT ME -->
+        <div class="grace-badge-compact" onclick="openAbout()">
           <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
           <span class="badge-text">✨ by Grace (@theGFsAdvise) ✨</span>
         </div>
       </div>
     </div>
 
-    <!-- DATE & PRICE - CENTERED, SAME SIZE, INLINE PRICE -->
+    <!-- DATE & PRICE -->
     <div class="header-info-center">
       <div class="date-badge-compact"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
       <div class="price-compact">₱30,000 per pax *</div>
@@ -687,7 +859,7 @@
   <!-- SCROLLABLE CONTENT -->
   <div class="scroll-content">
 
-    <!-- DAY 0 – WEDNESDAY EVENING (pre-departure) -->
+    <!-- DAY 0 -->
     <div class="day-card" onclick="openModal('modal-day0')">
       <div class="day-header">
         <span class="day-num">DAY 0</span>
@@ -701,7 +873,7 @@
       </div>
     </div>
 
-    <!-- DAY 1 – THURSDAY (arrival + N Seoul Tower) -->
+    <!-- DAY 1 -->
     <div class="day-card" onclick="openModal('modal-day1')">
       <div class="day-header">
         <span class="day-num">DAY 1</span>
@@ -716,7 +888,7 @@
       </div>
     </div>
 
-    <!-- DAY 2 – FRIDAY (Nami Island Tour) -->
+    <!-- DAY 2 -->
     <div class="day-card" onclick="openModal('modal-day2')">
       <div class="day-header">
         <span class="day-num">DAY 2</span>
@@ -731,7 +903,7 @@
       </div>
     </div>
 
-    <!-- DAY 3 – SATURDAY (Gangnam Experience) -->
+    <!-- DAY 3 -->
     <div class="day-card" onclick="openModal('modal-day3')">
       <div class="day-header">
         <span class="day-num">DAY 3</span>
@@ -746,7 +918,7 @@
       </div>
     </div>
 
-    <!-- DAY 4 – SUNDAY (Jongno Historical Tour) -->
+    <!-- DAY 4 -->
     <div class="day-card" onclick="openModal('modal-day4')">
       <div class="day-header">
         <span class="day-num">DAY 4</span>
@@ -761,7 +933,7 @@
       </div>
     </div>
 
-    <!-- DAY 5 – MONDAY (Departure) -->
+    <!-- DAY 5 -->
     <div class="day-card" onclick="openModal('modal-day5')">
       <div class="day-header">
         <span class="day-num">DAY 5</span>
@@ -798,9 +970,9 @@
 
 </div> <!-- end pop-card -->
 
-<!-- ===== MODALS with EXACT ITINERARY ===== -->
+<!-- ===== MODALS ===== -->
 
-<!-- DAY 0 – Wed, Aug 19 -->
+<!-- DAY 0 -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
   <div class="modal-content">
     <div class="modal-header">
@@ -815,7 +987,7 @@
   </div>
 </div>
 
-<!-- DAY 1 – Thu, Aug 20 (Arrival + N Seoul Tower) -->
+<!-- DAY 1 -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
   <div class="modal-content">
     <div class="modal-header">
@@ -835,7 +1007,7 @@
   </div>
 </div>
 
-<!-- DAY 2 – Fri, Aug 21 (Nami Island Tour) -->
+<!-- DAY 2 -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
   <div class="modal-content">
     <div class="modal-header">
@@ -854,7 +1026,7 @@
   </div>
 </div>
 
-<!-- DAY 3 – Sat, Aug 22 (Gangnam Experience) -->
+<!-- DAY 3 -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
   <div class="modal-content">
     <div class="modal-header">
@@ -873,7 +1045,7 @@
   </div>
 </div>
 
-<!-- DAY 4 – Sun, Aug 23 (Jongno Historical Tour) -->
+<!-- DAY 4 -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
   <div class="modal-content">
     <div class="modal-header">
@@ -892,7 +1064,7 @@
   </div>
 </div>
 
-<!-- DAY 5 – Mon, Aug 24 (Departure) -->
+<!-- DAY 5 -->
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
   <div class="modal-content">
     <div class="modal-header">
@@ -908,8 +1080,69 @@
   </div>
 </div>
 
+<!-- ===== ABOUT ME OVERLAY ===== -->
+<div class="about-overlay" id="aboutOverlay" onclick="closeAboutOutside(event)">
+  <div class="about-content">
+    <div class="about-header">
+      <div class="about-title">
+        <i class="fas fa-user-astronaut"></i> About Me
+      </div>
+      <button class="about-close" onclick="closeAbout()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="about-body">
+      <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="about-avatar-large">
+
+      <div class="story-title">✈️ Good Times, Far Places</div>
+      <div class="story-sub">✨ <i class="fas fa-heart"></i> Grace · @theGFsadvise <i class="fas fa-heart"></i> ✨</div>
+
+      <div class="story-text">
+        <p>
+          <span class="highlight">I'm Grace</span> — a curious soul with a <span class="highlight-pink">passion for exploration</span> and a deep love for discovering the world's hidden gems.
+          My journey began with a simple belief: <span class="highlight">travel is more than just seeing new places; it's about collecting moments, flavors, and stories.</span>
+        </p>
+
+        <p>
+          From the <span class="highlight-pink">cherry blossom-lined streets of Tokyo</span> to the <span class="highlight">bustling night markets of Seoul</span>
+          and the <span class="highlight-pink">ancient wonders of Beijing</span>, every destination has a story waiting to be told.
+          I don't just plan trips — I curate <span class="highlight">experiences</span> that stay with you long after the journey ends.
+        </p>
+
+        <hr class="story-divider" />
+
+        <p>
+          <span class="highlight">🌏 Why GF Travel Itineraries?</span><br />
+          The <span class="highlight">"GF"</span> stands for <span class="highlight-pink">"Good Times, Far Places"</span> — because that's exactly what I believe travel should be.
+          Whether you're a <span class="highlight">solo adventurer</span>, a <span class="highlight-pink">couple</span>, or a <span class="highlight">group of friends</span>, I'm here to help you turn your travel dreams into reality.
+        </p>
+
+        <p>
+          <span class="highlight-pink">✨ What I offer:</span><br />
+          🗺️ Handcrafted, <span class="highlight">day-by-day itineraries</span><br />
+          🏨 <span class="highlight-pink">Curated hotel recommendations</span> for every budget<br />
+          🍜 <span class="highlight">Local food guides</span> to satisfy every craving<br />
+          📸 <span class="highlight-pink">Instagram-worthy spots</span> you won't want to miss<br />
+          💡 <span class="highlight">Insider tips</span> that only locals know
+        </p>
+
+        <hr class="story-divider" />
+
+        <p>
+          <span class="highlight">💫 Let's explore together.</span><br />
+          Whether you're planning your <span class="highlight-pink">first big trip</span> or your <span class="highlight">fiftieth</span>, I'm here to make every journey
+          <span class="highlight-pink">effortless, memorable, and full of good times.</span>
+        </p>
+      </div>
+
+      <div class="story-tagline">
+        <i class="fas fa-compass"></i> Good Times, Far Places <i class="fas fa-compass"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== JAVASCRIPT ===== -->
 <script>
+  // Modal functions
   function openModal(id) {
     document.getElementById(id).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -926,12 +1159,34 @@
     }
   }
 
+  // About Me functions
+  function openAbout() {
+    document.getElementById('aboutOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAbout() {
+    document.getElementById('aboutOverlay').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  function closeAboutOutside(event) {
+    if (event.target === document.getElementById('aboutOverlay')) {
+      closeAbout();
+    }
+  }
+
+  // Keyboard shortcuts
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       const openModals = document.querySelectorAll('.modal-overlay.active');
       openModals.forEach(function(modal) {
         closeModal(modal.id);
       });
+      const about = document.getElementById('aboutOverlay');
+      if (about.classList.contains('active')) {
+        closeAbout();
+      }
     }
   });
 </script>
