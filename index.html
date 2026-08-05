@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>✨ DIY SEOUL · pop infographic by Grace ✨</title>
+    <!-- Google Fonts: modern + fun -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fce4ec;
+            background-image: radial-gradient(circle at 20% 30%, #ffd5e5 10%, transparent 20%),
+                              radial-gradient(circle at 80% 70%, #c5e8f7 10%, transparent 25%),
+                              linear-gradient(145deg, #ffe6f0, #fde2e4);
+            font-family: 'Montserrat', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* MAIN CARD */
+        .pop-card {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 70px 70px 50px 50px;
+            box-shadow: 0 30px 40px rgba(255, 80, 120, 0.4),
+                        0 0 0 10px #fff6e6,
+                        0 0 0 16px #ff8fab;
+            padding: 40px 40px 30px;
+            border: 5px solid #ffd966;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #ffb3c6, #ff99c8);
+            padding: 25px 35px;
+            border-radius: 70px 20px 70px 20px;
+            border: 5px solid white;
+            box-shadow: 0 12px 0 #d94f7a, 0 20px 20px -10px #b34164;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Fredoka One', cursive;
+            color: #1a2a6c;
+            text-shadow: 5px 5px 0 #ffec9e, 8px 8px 0 #ffffffb0;
+            line-height: 1.1;
+        }
+
+        .grace-badge {
+            background: #ff4080;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 10px 35px;
+            border-radius: 100px;
+            border: 5px solid #ffd966;
+            box-shadow: 0 8px 0 #a52d54;
+            display: inline-block;
+            margin-top: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .price-chip {
+            background: #ffc44f;
+            padding: 18px 32px;
+            border-radius: 80px;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #1a2a6c;
+            border: 5px solid white;
+            box-shadow: 0 7px 0 #d45d00;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .price-chip small {
+            font-size: 1rem;
+            display: block;
+            color: #5f3a0a;
+        }
+
+        .date-badge {
+            background: #ffdc5e;
+            color: #1e3163;
+            font-size: 1.6rem;
+            font-weight: 800;
+            padding: 12px 35px;
+            border-radius: 60px;
+            border: 4px solid white;
+            box-shadow: 0 7px 0 #c52155;
+            display: inline-block;
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* INCLUSIONS STRIP */
+        .inclusion-strip {
+            background: #c1f0ff;
+            border-radius: 50px;
+            padding: 18px 28px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 4px solid #fc8eb6;
+            box-shadow: inset 0 -5px 0 #aad0f5, 0 15px 10px #fac0d9;
+        }
+
+        .inc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #283b73;
+            border: 3px solid #ff7c9f;
+            box-shadow: 0 5px 0 #fcbed6;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .inc-item i {
+            font-size: 1.8rem;
+            color: #d94f7a;
+        }
+
+        /* DAY CARDS - Clickable */
+        .day-card {
+            margin: 25px 0;
+            background: #ffffffda;
+            backdrop-filter: blur(4px);
+            border-radius: 60px 20px 60px 20px;
+            border: 5px solid white;
+            box-shadow: 12px 18px 0 #d96b7c, 0 20px 20px -8px #803f4c;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .day-card:hover {
+            transform: scale(1.01) rotate(0.3deg);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            background: #ffe28f;
+            padding: 14px 28px;
+            border-bottom: 6px solid #fd6a7a;
+        }
+
+        .day-num {
+            background: #b23e6e;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 900;
+            padding: 6px 30px;
+            border-radius: 70px;
+            border: 5px solid #ffe88e;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .day-date-tag {
+            background: #2f4858;
+            color: white;
+            padding: 8px 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .day-preview {
+            padding: 15px 25px 10px;
+            font-weight: 600;
+            color: #5a3a2a;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .day-preview i {
+            color: #d94f7a;
+        }
+
+        .click-hint {
+            margin-left: auto;
+            color: #b1582b;
+            font-weight: 700;
+            font-size: 0.9rem;
+            background: #f7e2b5;
+            padding: 4px 16px;
+            border-radius: 40px;
+            border: 2px solid #bb651e;
+        }
+
+        /* ===== MODAL OVERLAY ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            background: #fff7eada;
+            backdrop-filter: blur(12px);
+            border-radius: 70px 30px 70px 30px;
+            border: 6px solid #ffd966;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6),
+                        0 0 0 8px #fbe6c5,
+                        0 0 0 15px #ff8fab;
+            overflow-y: auto;
+            padding: 0;
+            animation: slideUp 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 30px;
+            background: #ffe28f;
+            border-radius: 64px 24px 0 0;
+            border-bottom: 6px solid #fd6a7a;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .modal-header .modal-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1a2a6c;
+            font-family: 'Fredoka One', cursive;
+        }
+        .modal-header .modal-close {
+            background: #b23e6e;
+            color: white;
+            border: none;
+            font-size: 1.8rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid #ffd966;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-header .modal-close:hover {
+            background: #8f2d4e;
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 25px 30px 30px;
+        }
+
+        .modal-body .time-activity-row {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 2px dashed #d4925a;
+        }
+        .modal-body .time-activity-row:last-child {
+            border-bottom: none;
+        }
+        .modal-body .time-badge {
+            flex: 0 0 130px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #772f0e;
+            background: #f7dbbc;
+            padding: 6px 16px;
+            border-radius: 60px;
+            text-align: center;
+            border: 2px solid #b8602a;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .modal-body .activity-text {
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3e2416;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .modal-body .activity-text i {
+            font-size: 1.6rem;
+            color: #d94f7a;
+            min-width: 35px;
+        }
+
+        .modal-body .mini-img-modal {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #ffa447;
+            flex-shrink: 0;
+        }
+
+        .modal-body .map-link {
+            color: #b1582b;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dotted #b1582b;
+        }
+        .modal-body .map-link:hover {
+            color: #6b2e1a;
+        }
+
+        .modal-body .alert-note {
+            background: #fbeba4;
+            border-radius: 50px;
+            padding: 8px 22px;
+            border: 4px solid #d48b2c;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+        .footer-modern {
+            background: #d94f7a;
+            color: white;
+            padding: 22px 35px;
+            border-radius: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            border: 5px solid #ffd966;
+            box-shadow: 0 10px 0 #8f2d4e;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .footer-handle {
+            background: #1a2a6c;
+            padding: 12px 40px;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 800;
+            border: 3px solid #ffc857;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        @media (max-width:750px){
+            .header h1 { font-size: 2.6rem; }
+            .price-chip { font-size: 1.4rem; padding: 12px 20px; }
+            .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
+            .modal-body .time-badge { flex: 0 0 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="pop-card">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div>
+            <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
+            <div class="grace-badge">✨ by Grace (@theGFsadvise) ✨</div>
+            <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
+        </div>
+        <div class="price-chip">
+            ₱30,000 <small>per pax *</small>
+        </div>
+    </div>
+
+    <!-- INCLUSIONS -->
+    <div class="inclusion-strip">
+        <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
+        <div class="inc-item"><i class="fas fa-taxi"></i> Uber transfers</div>
+        <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
+    </div>
+
+    <!-- ===== DAY 1 – THURSDAY, AUG 20 (CLICKABLE) ===== -->
+    <div class="day-card" onclick="openModal('modal-day1')">
+        <div class="day-header">
+            <span class="day-num">DAY 1</span>
+            <span class="day-date-tag">Thursday, Aug 20, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-plane"></i> Arrival 5:20 AM</span>
+            <span><i class="fas fa-hotel"></i> Check-in 3:00 PM</span>
+            <span><i class="fas fa-utensils"></i> Myeongdong Night Market</span>
+        </div>
+    </div>
+
+    <!-- ===== DAY 2 – FRIDAY, AUG 21 (CLICKABLE) ===== -->
+    <div class="day-card" onclick="openModal('modal-day2')">
+        <div class="day-header">
+            <span class="day-num">DAY 2</span>
+            <span class="day-date-tag">Friday, Aug 21, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-tree"></i> Nami Island Tour</span>
+            <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
+            <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+        </div>
+    </div>
+
+    <!-- ===== DAY 3 – SATURDAY, AUG 22 (CLICKABLE) ===== -->
+    <div class="day-card" onclick="openModal('modal-day3')">
+        <div class="day-header">
+            <span class="day-num">DAY 3</span>
+            <span class="day-date-tag">Saturday, Aug 22, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-city"></i> Gangnam Experience</span>
+            <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
+            <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+        </div>
+    </div>
+
+    <!-- ===== DAY 4 – SUNDAY, AUG 23 (CLICKABLE) ===== -->
+    <div class="day-card" onclick="openModal('modal-day4')">
+        <div class="day-header">
+            <span class="day-num">DAY 4</span>
+            <span class="day-date-tag">Sunday, Aug 23, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-walking"></i> Jongno Historical Tour</span>
+            <span><i class="fas fa-vest"></i> Hanbok Rental</span>
+            <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
+        </div>
+    </div>
+
+    <!-- ===== DAY 5 – MONDAY, AUG 24 (CLICKABLE) ===== -->
+    <div class="day-card" onclick="openModal('modal-day5')">
+        <div class="day-header">
+            <span class="day-num">DAY 5</span>
+            <span class="day-date-tag">Monday, Aug 24, 2026</span>
+            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+        </div>
+        <div class="day-preview">
+            <span><i class="fas fa-hotel"></i> Check-out 3:00 AM</span>
+            <span><i class="fas fa-plane-departure"></i> Depart 6:35 AM</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-modern">
+        <span><i class="fas fa-exclamation-triangle"></i> *rate may change without prior notice · 30k PHP est. pax</span>
+        <span class="footer-handle">@theGFsadvise</span>
+    </div>
+
+</div> <!-- end pop-card -->
+
+<!-- ============================================================ -->
+<!-- MODALS -->
+<!-- ============================================================ -->
+
+<!-- MODAL DAY 1 -->
+<div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 1 · Thursday, Aug 20, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day1')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">9:20 PM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Baggage Checkin</span></div>
+            <div class="time-activity-row"><span class="time-badge">12:20 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 12:20 AM</span></div>
+            <div class="time-activity-row"><span class="time-badge">5:20 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Incheon International Airport</span></div>
+            <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-luggage"></i> Early Hotel Luggage Drop</span></div>
+            <div class="time-activity-row"><span class="time-badge">7:30 AM</span> <span class="activity-text"><i class="fas fa-bus"></i> Namsan Shuttle Bus No. 01A or No. 5</span></div>
+            <div class="time-activity-row"><span class="time-badge">LUNCH</span> <span class="activity-text"><i class="fas fa-utensils"></i> Hanam Pig KBBQ or Kyoja (Michelin Star)</span></div>
+            <div class="time-activity-row"><span class="time-badge">3:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check-in: Days Hotel by Wyndham</span></div>
+            <div class="time-activity-row"><span class="time-badge">Evening</span> <span class="activity-text"><i class="fas fa-moon"></i> Myeongdong Night Market</span></div>
+            <div class="alert-note"><i class="fas fa-camera"></i> Don't miss the N Seoul Tower views! 🌃</div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DAY 2 -->
+<div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 2 · Friday, Aug 21, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://www.klook.com/activity/8962-nami-island-petite-france-railbike-garden-of-morning-calm-day-tour-seoul/?spm=SearchResult.SearchResult_LIST&clickId=18614e8598" target="_blank" class="map-link">Nami Island Tour (Klook)</a></span></div>
+            <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Meet up at Myeongdong Station Exit 3</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1751262716/ieyuoar2uapqcygjh8ch.jpg');"></span> Nami Island</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710086/awvzamvzuongpfdjj656.jpg');"></span> Alpaca World 🦙</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710040/cxhimfgbmv8046z6cnwl.jpg');"></span> The Garden of Morning Calm</span></div>
+            <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-flag-checkered"></i> End of Tour</span></div>
+            <div class="alert-note"><i class="fas fa-camera"></i> 📸 Picture-perfect spots everywhere!</div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DAY 3 -->
+<div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 3 · Saturday, Aug 22, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-city"></i> Gangnam Experience</span></div>
+            <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Meet up at Myeongdong Station Exit 2</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/3084942/pexels-photo-3084942.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Suwon Hwaseong Fortress</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/4223252/pexels-photo-4223252.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Hwaseong Palace</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/1631665/pexels-photo-1631665.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Starfield Suwon Library</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/2487979/pexels-photo-2487979.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Korean Folk Village</span></div>
+            <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-flag-checkered"></i> End of Tour</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DAY 4 -->
+<div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 4 · Sunday, Aug 23, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day4')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-walking"></i> Jongno Historical Tour</span></div>
+            <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/1389008/pexels-photo-1389008.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Gwanghwamun Square</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/3998345/pexels-photo-3998345.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> National Museum of Korea</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-vest"></i> Hanbok Rental</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/9630193/pexels-photo-9630193.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Gyeongbokgung Palace</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/4223252/pexels-photo-4223252.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Jogyesa Temple</span></div>
+            <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=600');"></span> Lotte Mart Zettaplex (Seoul Station)</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DAY 5 -->
+<div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">📅 DAY 5 · Monday, Aug 24, 2026</span>
+            <button class="modal-close" onclick="closeModal('modal-day5')"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="time-activity-row"><span class="time-badge">12:00 AM</span> <span class="activity-text"><i class="fas fa-hourglass-start"></i> Departure Day</span></div>
+            <div class="time-activity-row"><span class="time-badge">3:00 AM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check Out</span></div>
+            <div class="time-activity-row"><span class="time-badge">5:35 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure @ 6:35 AM</span></div>
+            <div class="alert-note"><i class="fas fa-check-circle"></i> Safe travels! 🇰🇷 감사합니다 ✨</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    function openModal(id) {
+        document.getElementById(id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOutside(event, id) {
+        if (event.target === document.getElementById(id)) {
+            closeModal(id);
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const openModals = document.querySelectorAll('.modal-overlay.active');
+            openModals.forEach(function(modal) {
+                closeModal(modal.id);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
