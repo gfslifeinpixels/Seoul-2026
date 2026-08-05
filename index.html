@@ -22,7 +22,7 @@
       justify-content: center;
       align-items: flex-start;
       background-color: #fce4ec;
-      /* MOVING BACKGROUND – now more visible */
+      /* MOVING BACKGROUND – now fully visible */
       background-image: url('https://media.easy-peasy.ai/045043b6-37d3-414c-aa75-b0d7b65a23de/9ee3aa97-91b1-47ec-8c84-b34ea3263a7c_medium.webp');
       background-size: cover;
       background-position: center;
@@ -31,13 +31,13 @@
       position: relative;
     }
 
-    /* subtle overlay to keep text readable but background pops */
+    /* lighter overlay so background pops but text stays legible */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: rgba(255, 235, 240, 0.3);
-      backdrop-filter: blur(1.5px);
+      background: rgba(255, 240, 245, 0.15);
+      backdrop-filter: blur(1px);
       z-index: 0;
       pointer-events: none;
     }
@@ -47,20 +47,34 @@
       100% { background-position: 100% 100%; }
     }
 
+    /* MAIN CARD – now fully transparent so skin shows through */
     .pop-card {
       max-width: 1000px;
       width: 100%;
-      background: #ffffff;
+      background: transparent; /* was #ffffff – now clear! */
       border-radius: 50px 50px 40px 40px;
-      box-shadow: 0 20px 30px rgba(255, 80, 120, 0.35),
-                  0 0 0 8px #fff6e6,
-                  0 0 0 14px #ff8fab;
+      box-shadow: 0 20px 30px rgba(255, 80, 120, 0.25),
+                  0 0 0 8px rgba(255, 246, 230, 0.7),
+                  0 0 0 14px rgba(255, 143, 171, 0.6);
       padding: 24px 18px 20px;
-      border: 4px solid #ffd966;
+      border: 4px solid rgba(255, 217, 102, 0.85);
       animation: float 6s ease-in-out infinite;
       position: relative;
       z-index: 2;
       margin: 6px 0 20px;
+      backdrop-filter: blur(0px); /* no blur on card */
+    }
+
+    /* but we keep the inner elements opaque for readability */
+    .sticky-title, .header, .inclusion-strip, .day-card, .footer-modern, .modal-content {
+      background: rgba(255, 255, 255, 0.92); /* semi-transparent white */
+      backdrop-filter: blur(4px);
+    }
+
+    /* special for sticky title to keep it readable */
+    .sticky-title {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
     }
 
     @keyframes float {
@@ -74,8 +88,6 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
       border-radius: 30px 30px 16px 16px;
       padding: 4px 10px 2px 10px;
       margin: -6px -6px 0 -6px;
@@ -100,7 +112,7 @@
 
     /* ===== HEADER ===== */
     .header {
-      background: linear-gradient(135deg, #ffb3c6, #ff99c8);
+      background: rgba(255, 179, 198, 0.92);
       padding: 14px 18px 12px 18px;
       border-radius: 50px 16px 50px 16px;
       border: 4px solid white;
@@ -111,6 +123,7 @@
       align-items: center;
       margin-top: 2px;
       gap: 10px;
+      backdrop-filter: blur(4px);
     }
 
     .header-left {
@@ -198,7 +211,7 @@
 
     /* ===== INCLUSIONS ===== */
     .inclusion-strip {
-      background: #c1f0ff;
+      background: rgba(193, 240, 255, 0.92);
       border-radius: 40px;
       padding: 10px 14px;
       display: flex;
@@ -209,6 +222,7 @@
       border: 3px solid #fc8eb6;
       box-shadow: inset 0 -3px 0 #aad0f5, 0 8px 10px #fac0d9;
       margin: 12px 0 4px 0;
+      backdrop-filter: blur(4px);
     }
 
     .inc-item {
@@ -237,13 +251,14 @@
 
     .day-card {
       margin: 18px 0;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 40px 16px 40px 16px;
       border: 4px solid white;
       box-shadow: 8px 12px 0 #d96b7c, 0 16px 16px -8px #803f4c;
       overflow: hidden;
       transition: transform 0.2s ease;
       cursor: pointer;
+      backdrop-filter: blur(4px);
     }
     .day-card:hover {
       transform: scale(1.01) rotate(0.2deg);
@@ -338,7 +353,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
       z-index: 9999;
       justify-content: center;
@@ -360,7 +375,7 @@
       max-width: 700px;
       width: 100%;
       max-height: 90vh;
-      background: #fff7ea;
+      background: rgba(255, 247, 234, 0.96);
       border-radius: 50px 20px 50px 20px;
       border: 5px solid #ffd966;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
@@ -370,6 +385,7 @@
       padding: 0;
       animation: slideUp 0.25s ease;
       font-family: 'Montserrat', sans-serif;
+      backdrop-filter: blur(8px);
     }
 
     @keyframes slideUp {
@@ -497,7 +513,7 @@
 
     /* ===== FOOTER ===== */
     .footer-modern {
-      background: #d94f7a;
+      background: rgba(217, 79, 122, 0.92);
       color: white;
       padding: 16px 20px;
       border-radius: 50px;
@@ -510,6 +526,7 @@
       box-shadow: 0 8px 0 #8f2d4e;
       font-family: 'Montserrat', sans-serif;
       gap: 12px;
+      backdrop-filter: blur(4px);
     }
 
     .footer-contact {
@@ -573,13 +590,21 @@
     .footnote {
       text-align: center;
       font-size: 0.55rem;
-      color: #8f6b6b;
+      color: #2d1a1a;
       margin-top: 10px;
       font-weight: 600;
       letter-spacing: 0.3px;
-      opacity: 0.8;
+      opacity: 0.9;
       font-family: 'Montserrat', sans-serif;
       padding: 0 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 30px;
+      backdrop-filter: blur(2px);
+      padding: 4px 10px;
+      display: inline-block;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
     .footnote i {
       margin-right: 4px;
@@ -653,7 +678,7 @@
   <!-- INCLUSIONS -->
   <div class="inclusion-strip">
     <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-    <div class="inc-item"><i class="fas fa-taxi"></i> Uber transfers</div>
+    <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
     <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
   </div>
 
@@ -664,7 +689,7 @@
     <div class="day-card" onclick="openModal('modal-day0')">
       <div class="day-header">
         <span class="day-num">DAY 0</span>
-        <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
+        <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL</span>
         <span class="day-date-tag">Wed, Aug 19</span>
         <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
       </div>
