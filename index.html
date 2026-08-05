@@ -418,7 +418,7 @@
             margin-top: 10px;
         }
 
-        /* ===== NEW FOOTER WITH CONTACT ===== */
+        /* ===== FOOTER with CONTACT ===== */
         .footer-modern {
             background: #d94f7a;
             color: white;
@@ -475,10 +475,21 @@
             background: #1a2a6c;
             padding: 12px 40px;
             border-radius: 60px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             border: 3px solid #ffc857;
             font-family: 'Fredoka One', cursive;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .footer-handle .hashtag {
+            display: block;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #ffd966;
+            letter-spacing: 2px;
         }
 
         @media (max-width:750px){
@@ -491,7 +502,8 @@
             .day-tour-name { font-size: 0.9rem; padding: 4px 16px; }
             .footer-contact .contact-avatar { width: 40px; height: 40px; }
             .footer-contact .contact-name { font-size: 1rem; }
-            .footer-handle { font-size: 1.2rem; padding: 8px 20px; }
+            .footer-handle { font-size: 1.2rem; padding: 10px 20px; }
+            .footer-handle .hashtag { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -527,7 +539,7 @@
     <div class="day-card" onclick="openModal('modal-day0')">
         <div class="day-header">
             <span class="day-num">DAY 0</span>
-            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL</span>
+            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL </span>
             <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -597,11 +609,11 @@
         </div>
     </div>
 
-    <!-- DAY 5 – JAL GAYO -->
+    <!-- DAY 5 – DEPARTURE 🙏 -->
     <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-num">DAY 5</span>
-            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE </span>
+            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE 🙏</span>
             <span class="day-date-tag">Monday, Aug 24, 2026</span>
             <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
         </div>
@@ -611,7 +623,7 @@
         </div>
     </div>
 
-    <!-- ===== NEW FOOTER with CONTACT ===== -->
+    <!-- ===== NEW FOOTER with UPDATED HANDLE and HASHTAG ===== -->
     <div class="footer-modern">
         <div class="footer-contact">
             <span style="font-size: 1.2rem;">📩 questions? contact:</span>
@@ -620,9 +632,10 @@
             </a>
             <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
         </div>
-       <div class="footer-handle">
+        <div class="footer-handle">
             ✨ GF: Go Find. ✨
             <span class="hashtag">#GeeExplores</span>
+        </div>
     </div>
 
 </div> <!-- end pop-card -->
@@ -631,7 +644,7 @@
 <!-- MODALS -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 0 – ANNYEONG -->
+<!-- MODAL DAY 0 – TO SEOUL -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
     <div class="modal-content">
         <div class="modal-header">
@@ -646,7 +659,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 1 – N SEOUL TOWER -->
+<!-- MODAL DAY 1 – NAMSAN TOWER -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
