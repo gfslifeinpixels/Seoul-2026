@@ -20,7 +20,7 @@
                               radial-gradient(circle at 80% 70%, #c5e8f7 10%, transparent 25%),
                               linear-gradient(145deg, #ffe6f0, #fde2e4);
             font-family: 'Montserrat', sans-serif;
-            padding: 30px 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
             min-height: 100vh;
@@ -38,6 +38,7 @@
             padding: 40px 40px 30px;
             border: 5px solid #ffd966;
             animation: float 6s ease-in-out infinite;
+            position: relative;
         }
 
         @keyframes float {
@@ -46,13 +47,37 @@
             100% { transform: translateY(0px); }
         }
 
+        /* ===== STICKY HEADER ===== */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-radius: 40px 40px 30px 30px;
+            padding: 10px 0 5px 0;
+            margin: -10px -10px 0 -10px;
+            box-shadow: 0 8px 25px rgba(255, 80, 120, 0.15);
+            border-bottom: 4px solid #ffd966;
+        }
+
+        .sticky-header .header {
+            padding: 15px 25px 10px 25px;
+            margin-bottom: 5px;
+        }
+
+        .sticky-header .inclusion-strip {
+            padding: 12px 20px;
+            margin-bottom: 5px;
+            border-radius: 40px;
+        }
+
         .header {
             background: linear-gradient(135deg, #ffb3c6, #ff99c8);
             padding: 25px 35px;
             border-radius: 70px 20px 70px 20px;
             border: 5px solid white;
             box-shadow: 0 12px 0 #d94f7a, 0 20px 20px -10px #b34164;
-            margin-bottom: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -60,28 +85,28 @@
         }
 
         .header h1 {
-            font-size: 4rem;
+            font-size: 3.2rem;
             font-weight: 900;
             font-family: 'Fredoka One', cursive;
             color: #1a2a6c;
-            text-shadow: 5px 5px 0 #ffec9e, 8px 8px 0 #ffffffb0;
+            text-shadow: 4px 4px 0 #ffec9e, 6px 6px 0 #ffffffb0;
             line-height: 1.1;
         }
 
         .grace-badge {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             background: #ff4080;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 8px 25px 8px 15px;
+            padding: 6px 18px 6px 10px;
             border-radius: 100px;
-            border: 5px solid #ffd966;
-            box-shadow: 0 8px 0 #a52d54;
+            border: 4px solid #ffd966;
+            box-shadow: 0 6px 0 #a52d54;
             font-family: 'Montserrat', sans-serif;
-            margin-top: 8px;
+            margin-top: 4px;
             transition: transform 0.3s ease;
         }
         .grace-badge:hover {
@@ -89,10 +114,10 @@
         }
 
         .grace-badge .avatar {
-            width: 55px;
-            height: 55px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 4px solid white;
+            border: 3px solid white;
             object-fit: cover;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
@@ -101,68 +126,54 @@
             transform: rotate(-5deg) scale(1.05);
         }
 
-        .price-chip {
-            background: #ffc44f;
-            padding: 18px 32px;
-            border-radius: 80px;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #1a2a6c;
-            border: 5px solid white;
-            box-shadow: 0 7px 0 #d45d00;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .price-chip small {
-            font-size: 1rem;
-            display: block;
-            color: #5f3a0a;
-        }
-
         .date-badge {
             background: #ffdc5e;
             color: #1e3163;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            padding: 12px 35px;
+            padding: 8px 25px;
             border-radius: 60px;
             border: 4px solid white;
-            box-shadow: 0 7px 0 #c52155;
+            box-shadow: 0 6px 0 #c52155;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 4px;
             font-family: 'Montserrat', sans-serif;
         }
 
         .inclusion-strip {
             background: #c1f0ff;
             border-radius: 50px;
-            padding: 18px 28px;
-            margin-bottom: 35px;
+            padding: 12px 20px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             border: 4px solid #fc8eb6;
-            box-shadow: inset 0 -5px 0 #aad0f5, 0 15px 10px #fac0d9;
+            box-shadow: inset 0 -5px 0 #aad0f5, 0 10px 10px #fac0d9;
         }
 
         .inc-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: white;
-            padding: 8px 22px;
+            padding: 6px 18px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #283b73;
             border: 3px solid #ff7c9f;
-            box-shadow: 0 5px 0 #fcbed6;
+            box-shadow: 0 4px 0 #fcbed6;
             font-family: 'Montserrat', sans-serif;
         }
         .inc-item i {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: #d94f7a;
+        }
+
+        /* ===== MAIN CONTENT (scrollable) ===== */
+        .scroll-content {
+            padding-top: 10px;
         }
 
         .day-card {
@@ -183,30 +194,30 @@
         .day-header {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 14px;
             flex-wrap: wrap;
             background: #ffe28f;
-            padding: 14px 28px;
+            padding: 12px 22px;
             border-bottom: 6px solid #fd6a7a;
         }
 
         .day-num {
             background: #b23e6e;
             color: white;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            padding: 6px 30px;
+            padding: 4px 22px;
             border-radius: 70px;
-            border: 5px solid #ffe88e;
+            border: 4px solid #ffe88e;
             font-family: 'Fredoka One', cursive;
         }
 
         .day-tour-name {
             background: #1a2a6c;
             color: white;
-            padding: 8px 28px;
+            padding: 6px 20px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
             border: 4px solid #ffc857;
             font-family: 'Montserrat', sans-serif;
@@ -230,19 +241,19 @@
         .day-date-tag {
             background: #2f4858;
             color: white;
-            padding: 8px 30px;
+            padding: 6px 22px;
             border-radius: 50px;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
         }
 
         .day-preview {
-            padding: 15px 25px 10px;
+            padding: 12px 22px 8px;
             font-weight: 600;
             color: #5a3a2a;
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .day-preview i {
@@ -253,13 +264,35 @@
             margin-left: auto;
             color: #b1582b;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             background: #f7e2b5;
-            padding: 4px 16px;
+            padding: 3px 12px;
             border-radius: 40px;
             border: 2px solid #bb651e;
         }
 
+        /* ===== PRICE BAR (before footer) ===== */
+        .price-bar {
+            background: #ffc44f;
+            padding: 16px 30px;
+            border-radius: 70px;
+            font-weight: 900;
+            font-size: 2.2rem;
+            color: #1a2a6c;
+            border: 5px solid white;
+            box-shadow: 0 8px 0 #d45d00;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .price-bar small {
+            font-size: 1.2rem;
+            display: block;
+            color: #5f3a0a;
+            font-weight: 700;
+        }
+
+        /* ===== MODAL OVERLAY ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -427,7 +460,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 20px;
             flex-wrap: wrap;
             border: 5px solid #ffd966;
             box-shadow: 0 10px 0 #8f2d4e;
@@ -439,13 +472,13 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
         }
 
         .footer-contact .contact-avatar {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             border: 4px solid white;
             object-fit: cover;
@@ -462,7 +495,7 @@
             color: #fff5d6;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             border-bottom: 3px solid #ffd966;
             padding-bottom: 2px;
             transition: color 0.3s ease;
@@ -473,9 +506,9 @@
 
         .footer-handle {
             background: #1a2a6c;
-            padding: 12px 40px;
+            padding: 10px 30px;
             border-radius: 60px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             border: 3px solid #ffc857;
             font-family: 'Fredoka One', cursive;
@@ -485,7 +518,7 @@
 
         .footer-handle .hashtag {
             display: block;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: #ffd966;
@@ -493,17 +526,23 @@
         }
 
         @media (max-width:750px){
-            .header h1 { font-size: 2.6rem; }
-            .price-chip { font-size: 1.4rem; padding: 12px 20px; }
-            .grace-badge { font-size: 1rem; padding: 6px 16px 6px 10px; }
-            .grace-badge .avatar { width: 40px; height: 40px; }
-            .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
-            .modal-body .time-badge { flex: 0 0 100px; }
-            .day-tour-name { font-size: 0.9rem; padding: 4px 16px; }
+            .header h1 { font-size: 2.2rem; }
+            .sticky-header .header { padding: 10px 15px; }
+            .inclusion-strip { padding: 10px 15px; gap: 8px; justify-content: center; }
+            .inc-item { font-size: 0.8rem; padding: 4px 12px; }
+            .grace-badge { font-size: 0.9rem; padding: 4px 12px 4px 8px; }
+            .grace-badge .avatar { width: 32px; height: 32px; }
+            .date-badge { font-size: 1rem; padding: 6px 16px; }
+            .price-bar { font-size: 1.6rem; padding: 12px 20px; }
+            .price-bar small { font-size: 1rem; }
+            .day-tour-name { font-size: 0.8rem; padding: 4px 12px; }
+            .day-num { font-size: 1.4rem; padding: 4px 16px; }
             .footer-contact .contact-avatar { width: 40px; height: 40px; }
             .footer-contact .contact-name { font-size: 1rem; }
-            .footer-handle { font-size: 1.2rem; padding: 10px 20px; }
-            .footer-handle .hashtag { font-size: 0.8rem; }
+            .footer-handle { font-size: 1.1rem; padding: 8px 16px; }
+            .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
+            .modal-body .time-badge { flex: 0 0 100px; }
+            .pop-card { padding: 20px 15px; }
         }
     </style>
 </head>
@@ -511,132 +550,140 @@
 
 <div class="pop-card">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div>
-            <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
-            <div class="grace-badge">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
-                ✨ by Grace (@theGFsadvise) ✨
+    <!-- ===== STICKY HEADER (top part fixed) ===== -->
+    <div class="sticky-header">
+        <!-- HEADER -->
+        <div class="header">
+            <div>
+                <h1>🇰🇷 DIY SEOUL<br>LAND ARRANGEMENT</h1>
+                <div class="grace-badge">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
+                    ✨ by Grace (@theGFsadvise) ✨
+                </div>
+                <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
             </div>
-            <div class="date-badge"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
         </div>
-        <div class="price-chip">
+
+        <!-- INCLUSIONS -->
+        <div class="inclusion-strip">
+            <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
+            <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
+            <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
+        </div>
+    </div>
+
+    <!-- ===== SCROLLABLE CONTENT ===== -->
+    <div class="scroll-content">
+
+        <!-- DAY 0 – TO SEOUL 🛬 -->
+        <div class="day-card" onclick="openModal('modal-day0')">
+            <div class="day-header">
+                <span class="day-num">DAY 0</span>
+                <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
+                <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-plane"></i> Departure 12:20 AM</span>
+                <span><i class="fas fa-suitcase"></i> Check-in 9:20 PM</span>
+            </div>
+        </div>
+
+        <!-- DAY 1 – NAMSAN TOWER -->
+        <div class="day-card" onclick="openModal('modal-day1')">
+            <div class="day-header">
+                <span class="day-num">DAY 1</span>
+                <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
+                <span class="day-date-tag">Thursday, Aug 20, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-plane-arrival"></i> Arrival 5:20 AM</span>
+                <span><i class="fas fa-utensils"></i> Lunch at Kyoja</span>
+                <span><i class="fas fa-hotel"></i> Check-in 3:00 PM</span>
+            </div>
+        </div>
+
+        <!-- DAY 2 – NAMI ISLAND TOUR -->
+        <div class="day-card" onclick="openModal('modal-day2')">
+            <div class="day-header">
+                <span class="day-num">DAY 2</span>
+                <span class="day-tour-name"><i class="fas fa-tree"></i> Nami Island Tour</span>
+                <span class="day-date-tag">Friday, Aug 21, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
+                <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+                <span><i class="fas fa-camera"></i> 📸 Scenic spots</span>
+            </div>
+        </div>
+
+        <!-- DAY 3 – GANGNAM EXPERIENCE -->
+        <div class="day-card" onclick="openModal('modal-day3')">
+            <div class="day-header">
+                <span class="day-num">DAY 3</span>
+                <span class="day-tour-name"><i class="fas fa-city"></i> Gangnam Experience</span>
+                <span class="day-date-tag">Saturday, Aug 22, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
+                <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
+                <span><i class="fas fa-palace"></i> Suwon Fortress</span>
+            </div>
+        </div>
+
+        <!-- DAY 4 – JONGNO HISTORICAL TOUR -->
+        <div class="day-card" onclick="openModal('modal-day4')">
+            <div class="day-header">
+                <span class="day-num">DAY 4</span>
+                <span class="day-tour-name"><i class="fas fa-walking"></i> Jongno Historical Tour</span>
+                <span class="day-date-tag">Sunday, Aug 23, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-vest"></i> Hanbok Rental</span>
+                <span><i class="fas fa-temple"></i> Gyeongbokgung</span>
+                <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
+            </div>
+        </div>
+
+        <!-- DAY 5 – DEPARTURE -->
+        <div class="day-card" onclick="openModal('modal-day5')">
+            <div class="day-header">
+                <span class="day-num">DAY 5</span>
+                <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE</span>
+                <span class="day-date-tag">Monday, Aug 24, 2026</span>
+                <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
+            </div>
+            <div class="day-preview">
+                <span><i class="fas fa-hotel"></i> Check-out 3:00 AM</span>
+                <span><i class="fas fa-plane-departure"></i> Depart 6:35 AM</span>
+            </div>
+        </div>
+
+        <!-- ===== PRICE BAR (before footer) ===== -->
+        <div class="price-bar">
             ₱30,000 <small>per pax *</small>
         </div>
-    </div>
 
-    <!-- INCLUSIONS -->
-    <div class="inclusion-strip">
-        <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
-        <div class="inc-item"><i class="fas fa-taxi"></i> Airport transfers</div>
-        <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
-    </div>
+        <!-- ===== FOOTER with CONTACT ===== -->
+        <div class="footer-modern">
+            <div class="footer-contact">
+                <span style="font-size: 1.1rem;">📩 questions? contact:</span>
+                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
+                </a>
+                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">👈🏼@theGFsadvise</a>
+            </div>
+            <div class="footer-handle">
+                ✨ GF: Go Find ✨
+                <span class="hashtag">#GeeExplores</span>
+            </div>
+        </div>
 
-    <!-- ===== DAY CARDS ===== -->
-
-    <!-- DAY 0 – TO SEOUL -->
-    <div class="day-card" onclick="openModal('modal-day0')">
-        <div class="day-header">
-            <span class="day-num">DAY 0</span>
-            <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL </span>
-            <span class="day-date-tag">Wednesday, Aug 19, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-plane"></i> Departure 12:20 AM</span>
-            <span><i class="fas fa-suitcase"></i> Check-in 9:20 PM</span>
-        </div>
-    </div>
-
-    <!-- DAY 1 – N SEOUL TOWER -->
-    <div class="day-card" onclick="openModal('modal-day1')">
-        <div class="day-header">
-            <span class="day-num">DAY 1</span>
-            <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
-            <span class="day-date-tag">Thursday, Aug 20, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-plane-arrival"></i> Arrival 5:20 AM</span>
-            <span><i class="fas fa-utensils"></i> Lunch at Kyoja</span>
-            <span><i class="fas fa-hotel"></i> Check-in 3:00 PM</span>
-        </div>
-    </div>
-
-    <!-- DAY 2 – NAMI ISLAND TOUR -->
-    <div class="day-card" onclick="openModal('modal-day2')">
-        <div class="day-header">
-            <span class="day-num">DAY 2</span>
-            <span class="day-tour-name"><i class="fas fa-tree"></i> Nami Island Tour</span>
-            <span class="day-date-tag">Friday, Aug 21, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
-            <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
-            <span><i class="fas fa-camera"></i> 📸 Scenic spots</span>
-        </div>
-    </div>
-
-    <!-- DAY 3 – GANGNAM EXPERIENCE -->
-    <div class="day-card" onclick="openModal('modal-day3')">
-        <div class="day-header">
-            <span class="day-num">DAY 3</span>
-            <span class="day-tour-name"><i class="fas fa-city"></i> Gangnam Experience</span>
-            <span class="day-date-tag">Saturday, Aug 22, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
-            <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
-            <span><i class="fas fa-palace"></i> Suwon Fortress</span>
-        </div>
-    </div>
-
-    <!-- DAY 4 – JONGNO HISTORICAL TOUR -->
-    <div class="day-card" onclick="openModal('modal-day4')">
-        <div class="day-header">
-            <span class="day-num">DAY 4</span>
-            <span class="day-tour-name"><i class="fas fa-walking"></i> Jongno Historical Tour</span>
-            <span class="day-date-tag">Sunday, Aug 23, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-temple"></i> Gyeongbokgung</span>
-                        <span><i class="fas fa-vest"></i> Hanbok Rental</span>
-            <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
-        </div>
-    </div>
-
-    <!-- DAY 5 – DEPARTURE -->
-    <div class="day-card" onclick="openModal('modal-day5')">
-        <div class="day-header">
-            <span class="day-num">DAY 5</span>
-            <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE </span>
-            <span class="day-date-tag">Monday, Aug 24, 2026</span>
-            <span class="click-hint"><i class="fas fa-hand-pointer"></i> click to open</span>
-        </div>
-        <div class="day-preview">
-            <span><i class="fas fa-hotel"></i> Check-out 3:00 AM</span>
-            <span><i class="fas fa-plane-departure"></i> Depart 6:35 AM</span>
-        </div>
-    </div>
-
-    <!-- ===== NEW FOOTER with UPDATED HANDLE and HASHTAG ===== -->
-    <div class="footer-modern">
-        <div class="footer-contact">
-            <span style="font-size: 1.2rem;">📩 questions? contact:</span>
-            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
-            </a>
-            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name"> 👈🏼 @theGFsadvise</a>
-        </div>
-        <div class="footer-handle">
-            ✨ GF: Go Find. ✨
-            <span class="hashtag">#GeeExplores</span>
-        </div>
-    </div>
+    </div> <!-- end scroll-content -->
 
 </div> <!-- end pop-card -->
 
@@ -659,7 +706,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 1 – NAMSAN TOWER -->
+<!-- MODAL DAY 1 – N SEOUL TOWER -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
