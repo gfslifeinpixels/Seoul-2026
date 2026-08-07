@@ -235,6 +235,7 @@
       box-shadow: 0 3px 0 #fcbed6;
       font-family: 'Montserrat', sans-serif;
       transition: transform 0.2s ease;
+      cursor: pointer;
     }
     .inc-item:hover {
       transform: scale(1.02);
@@ -243,7 +244,6 @@
       font-size: 1.1rem;
       color: #d94f7a;
     }
-    /* Make the hotel link clickable and styled */
     .inc-item a {
       color: #283b73;
       text-decoration: none;
@@ -524,6 +524,110 @@
       display: inline-block;
       margin-top: 8px;
       font-size: 0.9rem;
+    }
+
+    /* ===== TOURS MODAL (Klook) ===== */
+    .tours-modal-body {
+      padding: 18px 24px 24px;
+    }
+    .tours-modal-body h3 {
+      font-family: 'Fredoka One', cursive;
+      color: #1a2a6c;
+      font-size: 1.2rem;
+      margin: 16px 0 10px 0;
+      border-bottom: 3px solid #ffd966;
+      padding-bottom: 6px;
+    }
+    .tours-modal-body h3:first-of-type {
+      margin-top: 4px;
+    }
+    .tours-modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px 0;
+    }
+    .tours-modal-body ul li {
+      padding: 6px 0 6px 28px;
+      position: relative;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #3e2416;
+      border-bottom: 1px dashed #f0dcc8;
+    }
+    .tours-modal-body ul li:last-child {
+      border-bottom: none;
+    }
+    .tours-modal-body ul li::before {
+      content: '▹';
+      position: absolute;
+      left: 4px;
+      color: #d94f7a;
+      font-size: 1.1rem;
+    }
+    .tours-modal-body ul li a {
+      color: #b1582b;
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 2px dotted #b1582b;
+      transition: color 0.2s;
+    }
+    .tours-modal-body ul li a:hover {
+      color: #6b2e1a;
+    }
+    .tours-modal-body .optional-tag {
+      display: inline-block;
+      background: #ffd966;
+      color: #1a2a6c;
+      font-size: 0.6rem;
+      font-weight: 800;
+      padding: 1px 10px;
+      border-radius: 30px;
+      margin-left: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+    }
+    .tours-modal-body .gift-tag {
+      display: inline-block;
+      background: #ff6b9d;
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 800;
+      padding: 1px 10px;
+      border-radius: 30px;
+      margin-left: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+    }
+    .tours-modal-body .note-divider {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ffd966, transparent);
+      margin: 16px 0;
+    }
+    .tours-modal-body .tour-note {
+      background: #f7f0e8;
+      border-radius: 30px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      color: #5a3a2a;
+      border-left: 4px solid #d94f7a;
+      margin-top: 12px;
+    }
+    .tours-modal-body .tour-note i {
+      color: #d94f7a;
+      margin-right: 8px;
+    }
+    .tours-modal-body .badge-icon {
+      display: inline-block;
+      background: #d94f7a;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0 10px;
+      border-radius: 20px;
+      margin-right: 6px;
     }
 
     .footer-modern {
@@ -824,6 +928,9 @@
       .story-text { font-size: 0.85rem; line-height: 1.7; }
       .story-tagline { font-size: 1rem; }
       .about-body .story-sub { font-size: 0.8rem; }
+      .tours-modal-body { padding: 14px 16px 18px; }
+      .tours-modal-body ul li { font-size: 0.85rem; padding: 5px 0 5px 24px; }
+      .tours-modal-body h3 { font-size: 1rem; }
     }
 
     @media (max-width: 400px) {
@@ -868,7 +975,7 @@
     </div>
   </div>
 
-  <!-- INCLUSIONS - with clickable Days Hotel -->
+  <!-- INCLUSIONS - with clickable Days Hotel and Tours via Klook -->
   <div class="inclusion-strip">
     <div class="inc-item">
       <a href="https://drive.google.com/file/d/1I4ML1Z93j3AXPq6N4DP3r-eQX4BYelsd/view?usp=sharing" target="_blank">
@@ -876,7 +983,9 @@
       </a>
     </div>
     <div class="inc-item"><i class="fas fa-shuttle-van"></i> Airport transfers</div>
-    <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
+    <div class="inc-item" onclick="openToursModal()">
+      <i class="fas fa-ticket-alt"></i> Tours via Klook
+    </div>
   </div>
 
   <!-- SCROLLABLE CONTENT -->
@@ -1118,6 +1227,43 @@
   </div>
 </div>
 
+<!-- ===== TOURS MODAL (Klook) ===== -->
+<div class="modal-overlay" id="toursModal" onclick="closeModalOutside(event, 'toursModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="modal-title">🎫 Tours via Klook</span>
+      <button class="modal-close" onclick="closeModal('toursModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="tours-modal-body">
+      <h3>📌 Tours Included</h3>
+      <ul>
+        <li><a href="https://www.klook.com/en-PH/activity/412-n-seoul-tower-seoul/" target="_blank">N Seoul Tower Ticket</a></li>
+        <li><a href="https://drive.google.com/file/d/1p8aPvlTwPiCz10N3kDvGyhK8uAS0_yXW/view?usp=drive_link" target="_blank">Nami Island Tour</a></li>
+        <li><a href="https://www.klook.com/en-PH/activity/193379-seoul-gangnam-time-travel-royal-tombs-to-starfield-library/?spm=SearchResult.SearchResult_LIST&clickId=513b6f8504" target="_blank">Gangnam Time Travel Tour</a></li>
+        <li><a href="https://www.klook.com/en-PH/activity/228-palace-and-temple-guide-seoul/?spm=SearchResult.SearchResult_LIST&clickId=189f09381b" target="_blank">Seoul Historical Tour (half-day)</a></li>
+      </ul>
+
+      <h3>✨ Optional Add-ons</h3>
+      <ul>
+        <li><a href="https://www.klook.com/en-PH/activity/412-n-seoul-tower-seoul/" target="_blank">Cable Car to N Seoul Tower</a></li>
+        <li><a href="https://www.klook.com/en-PH/activity/9931-eland-han-river-cruise-ashley-marine-buffet-seoul/" target="_blank">Han River Sunset Cruise + Buffet</a></li>
+        <li><a href="https://www.klook.com/activity/188475-seoul-gyeongbokgung-hanbok-rental-experience-palace-fox-hanbok/?spm=SearchResult.SearchResult_LIST&clickId=f98a709561" target="_blank">Hanbok Experience</a></li>
+      </ul>
+
+      <hr class="note-divider" />
+
+      <h3>🛍️ Travel Gifts / Pasalubong Shopping <span style="font-size:0.7rem; font-weight:400; color:#888;">(not part of the tour)</span></h3>
+      <ul>
+        <li><a href="https://i.namu.wiki/i/ZLzMZ_E533noZtyIVN_58IhCcZRToZJSDijxHTQXlI6FHWw_ZDFoTaG44j7IbISYrZcDIur39bu0saRg5Mnkvg.webp" target="_blank">Lotte Mart Zettaplex</a></li>
+      </ul>
+
+      <div class="tour-note">
+        <i class="fas fa-info-circle"></i> Click on any activity name to visit the booking page or view details.
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== ABOUT ME OVERLAY ===== -->
 <div class="about-overlay" id="aboutOverlay" onclick="closeAboutOutside(event)">
   <div class="about-content">
@@ -1195,6 +1341,12 @@
     if (event.target === document.getElementById(id)) {
       closeModal(id);
     }
+  }
+
+  // Tours Modal
+  function openToursModal() {
+    document.getElementById('toursModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 
   // About Me functions
