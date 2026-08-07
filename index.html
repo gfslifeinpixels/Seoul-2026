@@ -234,8 +234,27 @@
       border: 2px solid #ff7c9f;
       box-shadow: 0 3px 0 #fcbed6;
       font-family: 'Montserrat', sans-serif;
+      transition: transform 0.2s ease;
+    }
+    .inc-item:hover {
+      transform: scale(1.02);
     }
     .inc-item i {
+      font-size: 1.1rem;
+      color: #d94f7a;
+    }
+    /* Make the hotel link clickable and styled */
+    .inc-item a {
+      color: #283b73;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .inc-item a:hover {
+      color: #b23e6e;
+    }
+    .inc-item a i {
       font-size: 1.1rem;
       color: #d94f7a;
     }
@@ -849,9 +868,13 @@
     </div>
   </div>
 
-  <!-- INCLUSIONS -->
+  <!-- INCLUSIONS - with clickable Days Hotel -->
   <div class="inclusion-strip">
-    <div class="inc-item"><i class="fas fa-hotel"></i> Days Hotel Myeongdong</div>
+    <div class="inc-item">
+      <a href="https://drive.google.com/file/d/1I4ML1Z93j3AXPq6N4DP3r-eQX4BYelsd/view?usp=sharing" target="_blank">
+        <i class="fas fa-hotel"></i> Days Hotel Myeongdong
+      </a>
+    </div>
     <div class="inc-item"><i class="fas fa-shuttle-van"></i> Airport transfers</div>
     <div class="inc-item"><i class="fas fa-ticket-alt"></i> Tours via Klook</div>
   </div>
@@ -888,7 +911,7 @@
       </div>
     </div>
 
-    <!-- DAY 2 -->
+    <!-- DAY 2 - UPDATED ITINERARY -->
     <div class="day-card" onclick="openModal('modal-day2')">
       <div class="day-header">
         <span class="day-num">DAY 2</span>
@@ -899,7 +922,7 @@
       <div class="day-preview">
         <span><i class="fas fa-clock"></i> 5:00 AM Tour</span>
         <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
-        <span><i class="fas fa-flag-checkered"></i> End 6 PM</span>
+        <span><i class="fas fa-flag-checkered"></i> End 7:00 PM</span>
       </div>
     </div>
 
@@ -1007,7 +1030,7 @@
   </div>
 </div>
 
-<!-- DAY 2 -->
+<!-- DAY 2 - UPDATED ITINERARY with Google Drive link -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1015,12 +1038,14 @@
       <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
-      <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://www.klook.com/activity/8962-nami-island-petite-france-railbike-garden-of-morning-calm-day-tour-seoul/" target="_blank" class="map-link">Nami Island Tour (Klook)</a></span></div>
-      <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Meet up at Myeongdong Station Exit 3</span></div>
-      <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1751262716/ieyuoar2uapqcygjh8ch.jpg');"></span> Nami Island</span></div>
-      <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710086/awvzamvzuongpfdjj656.jpg');"></span> Alpaca World 🦙</span></div>
-      <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710040/cxhimfgbmv8046z6cnwl.jpg');"></span> The Garden of Morning Calm</span></div>
-      <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-flag-checkered"></i> End Of Tour</span></div>
+      <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://drive.google.com/file/d/1gRxJaadfICehBiPCGYLEcp8Bk_ZUfHpB/view?usp=sharing" target="_blank" class="map-link">Nami Island Tour (Klook)</a></span></div>
+      <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Namsan Yejang Bus Terminal, Myeongdong Station Exit 1</span></div>
+      <div class="time-activity-row"><span class="time-badge">9:50 AM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710086/awvzamvzuongpfdjj656.jpg');"></span> Alpaca World 🦙</span></div>
+      <div class="time-activity-row"><span class="time-badge">12:30 PM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1751262716/ieyuoar2uapqcygjh8ch.jpg');"></span> Nami Island</span></div>
+      <div class="time-activity-row"><span class="time-badge">3:30 PM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710040/cxhimfgbmv8046z6cnwl.jpg');"></span> Petite France</span></div>
+      <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-landmark"></i> Italia Village Pinocchio & Davinchi</span></div>
+      <div class="time-activity-row"><span class="time-badge">5:50 PM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710040/cxhimfgbmv8046z6cnwl.jpg');"></span> Garden of Morning Calm</span></div>
+      <div class="time-activity-row"><span class="time-badge">7:00 PM</span> <span class="activity-text"><i class="fas fa-flag-checkered"></i> End of Tour - Return</span></div>
       <div class="alert-note"><i class="fas fa-camera"></i> 📸 Picture-perfect spots everywhere!</div>
     </div>
   </div>
