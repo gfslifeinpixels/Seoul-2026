@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+    /* ===== RESET & BASE ===== */
     * {
       margin: 0;
       padding: 0;
@@ -43,6 +44,168 @@
     @keyframes moveBg {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
+    }
+
+    /* ===== SPLASH SCREEN (Cherry Blossom) ===== */
+    #splashScreen {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* SAME BACKGROUND as body */
+      background-image: url('https://media.easy-peasy.ai/045043b6-37d3-414c-aa75-b0d7b65a23de/9ee3aa97-91b1-47ec-8c84-b34ea3263a7c_medium.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      animation: moveBg 22s linear infinite alternate;
+      cursor: pointer;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Semi-transparent overlay on splash for readability */
+    #splashScreen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 240, 245, 0.25);
+      backdrop-filter: blur(2px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #splashScreen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #splashScreen .splash-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    #splashScreen .splash-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3rem;
+      color: #1a2a6c;
+      text-shadow: 4px 4px 0 #ffec9e, 6px 6px 0 #ffffffb0;
+      margin-bottom: 12px;
+    }
+
+    #splashScreen .splash-sub {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #d94f7a;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    #splashScreen .splash-sub i {
+      color: #ff6b9d;
+    }
+
+    /* ===== CHECKLIST STYLING ===== */
+    .checklist-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 24px 28px;
+      border: 3px solid #ffd966;
+      box-shadow: 0 12px 30px rgba(255, 80, 120, 0.2);
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .checklist-container h3 {
+      font-family: 'Fredoka One', cursive;
+      color: #1a2a6c;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checklist-container h3 i {
+      color: #ff6b9d;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      font-weight: 600;
+      color: #3e2416;
+      border-bottom: 1px dashed #f0dcc8;
+      font-size: 0.95rem;
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .checklist-item i {
+      width: 22px;
+      color: #d94f7a;
+      font-size: 1.1rem;
+    }
+
+    .checklist-item .check-icon {
+      color: #28a745;
+    }
+
+    #splashScreen .tap-hint {
+      font-size: 0.9rem;
+      color: #1a2a6c;
+      font-weight: 700;
+      animation: pulse 2s ease-in-out infinite;
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 8px 20px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    #splashScreen .tap-hint i {
+      color: #d94f7a;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    /* ===== CHERRY BLOSSOM PETALS (Canvas) ===== */
+    #petalCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ===== MAIN CONTENT (hidden initially) ===== */
+    #mainContent {
+      opacity: 0;
+      transition: opacity 1s ease;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    #mainContent.visible {
+      opacity: 1;
     }
 
     .pop-card {
@@ -104,7 +267,7 @@
       letter-spacing: -0.5px;
     }
 
-    /* ===== HEADER - REDESIGNED ===== */
+    /* ===== HEADER ===== */
     .header {
       background: rgba(255, 179, 198, 0.92);
       padding: 16px 20px 14px 20px;
@@ -574,32 +737,6 @@
     .tours-modal-body ul li a:hover {
       color: #6b2e1a;
     }
-    .tours-modal-body .optional-tag {
-      display: inline-block;
-      background: #ffd966;
-      color: #1a2a6c;
-      font-size: 0.6rem;
-      font-weight: 800;
-      padding: 1px 10px;
-      border-radius: 30px;
-      margin-left: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      vertical-align: middle;
-    }
-    .tours-modal-body .gift-tag {
-      display: inline-block;
-      background: #ff6b9d;
-      color: white;
-      font-size: 0.6rem;
-      font-weight: 800;
-      padding: 1px 10px;
-      border-radius: 30px;
-      margin-left: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      vertical-align: middle;
-    }
     .tours-modal-body .note-divider {
       border: none;
       height: 2px;
@@ -880,6 +1017,7 @@
       color: #ff6b9d;
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
       body { padding: 6px; }
       .pop-card { padding: 16px 12px 14px; border-radius: 30px; }
@@ -921,6 +1059,12 @@
       .tours-modal-body { padding: 14px 16px 18px; }
       .tours-modal-body ul li { font-size: 0.85rem; padding: 5px 0 5px 24px; }
       .tours-modal-body h3 { font-size: 1rem; }
+
+      /* Splash responsive */
+      #splashScreen .splash-title { font-size: 2.2rem; }
+      #splashScreen .splash-sub { font-size: 1rem; }
+      .checklist-container { padding: 18px 16px; }
+      .checklist-item { font-size: 0.85rem; padding: 6px 0; }
     }
 
     @media (max-width: 400px) {
@@ -932,165 +1076,192 @@
       .price-compact { font-size: 0.75rem; padding: 2px 10px; }
       .day-header { padding: 8px 10px; gap: 4px 8px; }
       .day-num { font-size: 0.9rem; padding: 1px 10px; }
+      #splashScreen .splash-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-<div class="pop-card">
+<!-- ===== SPLASH SCREEN with Cherry Blossom Effect ===== -->
+<div id="splashScreen" onclick="dismissSplash()">
+  <canvas id="petalCanvas"></canvas>
+  <div class="splash-content">
+    <div class="splash-title">🌸 Ready to Explore Seoul?</div>
+    <div class="splash-sub"><i class="fas fa-heart"></i> Summer in Seoul · August 2026 <i class="fas fa-heart"></i></div>
 
-  <!-- STICKY TITLE -->
-  <div class="sticky-title">
-    <div class="title-only">
-      <h1>🇰🇷 DIY SEOUL LAND ARRANGEMENT</h1>
+    <div class="checklist-container">
+      <h3><i class="fas fa-check-circle"></i> Travel Checklist</h3>
+      <div class="checklist-item"><i class="fas fa-passport check-icon"></i> Passport & Visa (if needed)</div>
+      <div class="checklist-item"><i class="fas fa-won-sign"></i> Korean Won (KRW) cash</div>
+      <div class="checklist-item"><i class="fas fa-wifi"></i> T-money card / SIM / eSIM</div>
+      <div class="checklist-item"><i class="fas fa-umbrella"></i> Light umbrella (summer rain)</div>
+      <div class="checklist-item"><i class="fas fa-sun"></i> Sunscreen & hat</div>
+      <div class="checklist-item"><i class="fas fa-plug"></i> Universal travel adapter</div>
+      <div class="checklist-item"><i class="fas fa-tshirt"></i> Comfortable walking shoes</div>
     </div>
-  </div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-top">
-      <div class="header-title-group">
-        <!-- CLICKABLE GRACE BADGE - OPENS ABOUT ME -->
-        <div class="grace-badge-compact" onclick="openAbout()">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
-          <span class="badge-text">✨ by Grace (@theGFsAdvise) ✨</span>
+    <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap anywhere to start your adventure ✨</div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT (hidden until splash is dismissed) ===== -->
+<div id="mainContent">
+
+  <div class="pop-card">
+
+    <!-- STICKY TITLE -->
+    <div class="sticky-title">
+      <div class="title-only">
+        <h1>🇰🇷 DIY SEOUL LAND ARRANGEMENT</h1>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-top">
+        <div class="header-title-group">
+          <div class="grace-badge-compact" onclick="openAbout()">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="avatar">
+            <span class="badge-text">✨ by Grace (@theGFsAdvise) ✨</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- DATE & PRICE -->
-    <div class="header-info-center">
-      <div class="date-badge-compact"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
-      <div class="price-compact">₱30,000 per pax *</div>
-    </div>
-  </div>
-
-  <!-- INCLUSIONS - with clickable Days Hotel and Tours via Klook -->
-  <div class="inclusion-strip">
-    <div class="inc-item">
-      <a href="https://drive.google.com/file/d/1I4ML1Z93j3AXPq6N4DP3r-eQX4BYelsd/view?usp=sharing" target="_blank">
-        <i class="fas fa-hotel"></i> Days Hotel Myeongdong
-      </a>
-    </div>
-    <div class="inc-item"><i class="fas fa-shuttle-van"></i> Airport transfers</div>
-    <div class="inc-item" onclick="openToursModal()">
-      <i class="fas fa-ticket-alt"></i> Tours via Klook
-    </div>
-  </div>
-
-  <!-- SCROLLABLE CONTENT -->
-  <div class="scroll-content">
-
-    <!-- DAY 0 -->
-    <div class="day-card" onclick="openModal('modal-day0')">
-      <div class="day-header">
-        <span class="day-num">DAY 0</span>
-        <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
-        <span class="day-date-tag">Wed, Aug 19</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-suitcase"></i> 9:20 PM Checkin</span>
-        <span><i class="fas fa-plane"></i> 12:20 AM Depart</span>
+      <!-- DATE & PRICE -->
+      <div class="header-info-center">
+        <div class="date-badge-compact"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
+        <div class="price-compact">₱30,000 per pax *</div>
       </div>
     </div>
 
-    <!-- DAY 1 -->
-    <div class="day-card" onclick="openModal('modal-day1')">
-      <div class="day-header">
-        <span class="day-num">DAY 1</span>
-        <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
-        <span class="day-date-tag">Thu, Aug 20</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-plane-arrival"></i> 5:20 AM Arrival</span>
-        <span><i class="fas fa-utensils"></i> Lunch Kyoja</span>
-        <span><i class="fas fa-ship"></i> 7:00 PM Cruise</span>
-      </div>
-    </div>
-
-    <!-- DAY 2 - UPDATED ITINERARY -->
-    <div class="day-card" onclick="openModal('modal-day2')">
-      <div class="day-header">
-        <span class="day-num">DAY 2</span>
-        <span class="day-tour-name"><i class="fas fa-tree"></i> Nami Island</span>
-        <span class="day-date-tag">Fri, Aug 21</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-clock"></i> 5:00 AM Tour</span>
-        <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
-        <span><i class="fas fa-flag-checkered"></i> End 7:00 PM</span>
-      </div>
-    </div>
-
-    <!-- DAY 3 -->
-    <div class="day-card" onclick="openModal('modal-day3')">
-      <div class="day-header">
-        <span class="day-num">DAY 3</span>
-        <span class="day-tour-name"><i class="fas fa-city"></i> Gangnam</span>
-        <span class="day-date-tag">Sat, Aug 22</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-clock"></i> 5:00 AM Tour</span>
-        <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
-        <span><i class="fas fa-flag-checkered"></i> End 6 PM</span>
-      </div>
-    </div>
-
-    <!-- DAY 4 -->
-    <div class="day-card" onclick="openModal('modal-day4')">
-      <div class="day-header">
-        <span class="day-num">DAY 4</span>
-        <span class="day-tour-name"><i class="fas fa-walking"></i> Jongno</span>
-        <span class="day-date-tag">Sun, Aug 23</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-clock"></i> 6:00 AM Tour</span>
-        <span><i class="fas fa-vest"></i> Hanbok optional</span>
-        <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
-      </div>
-    </div>
-
-    <!-- DAY 5 -->
-    <div class="day-card" onclick="openModal('modal-day5')">
-      <div class="day-header">
-        <span class="day-num">DAY 5</span>
-        <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE</span>
-        <span class="day-date-tag">Mon, Aug 24</span>
-        <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
-      </div>
-      <div class="day-preview">
-        <span><i class="fas fa-hotel"></i> 3:00 AM Check-out</span>
-        <span><i class="fas fa-plane-departure"></i> 6:35 AM Depart</span>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer-modern">
-      <div class="footer-contact">
-        <span style="font-size:0.85rem;">📩 Questions? contact:</span>
-        <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="contact-avatar">
+    <!-- INCLUSIONS -->
+    <div class="inclusion-strip">
+      <div class="inc-item">
+        <a href="https://drive.google.com/file/d/1I4ML1Z93j3AXPq6N4DP3r-eQX4BYelsd/view?usp=sharing" target="_blank">
+          <i class="fas fa-hotel"></i> Days Hotel Myeongdong
         </a>
-        <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name"> @theGFsAdvise</a>
       </div>
-      <div class="footer-handle">
-        ✨ GF: Good Times, Far Places ✨
-        <span class="hashtag">#GeeExplores</span>
+      <div class="inc-item"><i class="fas fa-shuttle-van"></i> Airport transfers</div>
+      <div class="inc-item" onclick="openToursModal()">
+        <i class="fas fa-ticket-alt"></i> Tours via Klook
       </div>
     </div>
 
-    <div class="footnote">
-      <i class="fas fa-info-circle"></i> Prices subject to change. Rates are estimated per person based on twin-sharing, availability, and exchange rates.
-    </div>
+    <!-- SCROLLABLE CONTENT -->
+    <div class="scroll-content">
 
-  </div> <!-- end scroll-content -->
+      <!-- DAY 0 -->
+      <div class="day-card" onclick="openModal('modal-day0')">
+        <div class="day-header">
+          <span class="day-num">DAY 0</span>
+          <span class="day-tour-name special"><i class="fas fa-plane-arrival"></i> TO SEOUL 🛬</span>
+          <span class="day-date-tag">Wed, Aug 19</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-suitcase"></i> 9:20 PM Checkin</span>
+          <span><i class="fas fa-plane"></i> 12:20 AM Depart</span>
+        </div>
+      </div>
 
-</div> <!-- end pop-card -->
+      <!-- DAY 1 -->
+      <div class="day-card" onclick="openModal('modal-day1')">
+        <div class="day-header">
+          <span class="day-num">DAY 1</span>
+          <span class="day-tour-name"><i class="fas fa-tower"></i> N Seoul Tower</span>
+          <span class="day-date-tag">Thu, Aug 20</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-plane-arrival"></i> 5:20 AM Arrival</span>
+          <span><i class="fas fa-utensils"></i> Lunch Kyoja</span>
+          <span><i class="fas fa-ship"></i> 7:00 PM Cruise</span>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-card" onclick="openModal('modal-day2')">
+        <div class="day-header">
+          <span class="day-num">DAY 2</span>
+          <span class="day-tour-name"><i class="fas fa-tree"></i> Nami Island</span>
+          <span class="day-date-tag">Fri, Aug 21</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-clock"></i> 5:00 AM Tour</span>
+          <span><i class="fas fa-map-pin"></i> Meet 7:00 AM</span>
+          <span><i class="fas fa-flag-checkered"></i> End 7:00 PM</span>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-card" onclick="openModal('modal-day3')">
+        <div class="day-header">
+          <span class="day-num">DAY 3</span>
+          <span class="day-tour-name"><i class="fas fa-city"></i> Gangnam</span>
+          <span class="day-date-tag">Sat, Aug 22</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-clock"></i> 5:00 AM Tour</span>
+          <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
+          <span><i class="fas fa-flag-checkered"></i> End 6 PM</span>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-card" onclick="openModal('modal-day4')">
+        <div class="day-header">
+          <span class="day-num">DAY 4</span>
+          <span class="day-tour-name"><i class="fas fa-walking"></i> Jongno</span>
+          <span class="day-date-tag">Sun, Aug 23</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-clock"></i> 6:00 AM Tour</span>
+          <span><i class="fas fa-vest"></i> Hanbok optional</span>
+          <span><i class="fas fa-shopping-bag"></i> Lotte Mart</span>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="day-card" onclick="openModal('modal-day5')">
+        <div class="day-header">
+          <span class="day-num">DAY 5</span>
+          <span class="day-tour-name departure"><i class="fas fa-plane-departure"></i> DEPARTURE</span>
+          <span class="day-date-tag">Mon, Aug 24</span>
+          <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
+        </div>
+        <div class="day-preview">
+          <span><i class="fas fa-hotel"></i> 3:00 AM Check-out</span>
+          <span><i class="fas fa-plane-departure"></i> 6:35 AM Depart</span>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer-modern">
+        <div class="footer-contact">
+          <span style="font-size:0.85rem;">📩 Questions? contact:</span>
+          <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="contact-avatar">
+          </a>
+          <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name"> @theGFsAdvise</a>
+        </div>
+        <div class="footer-handle">
+          ✨ GF: Good Times, Far Places ✨
+          <span class="hashtag">#GeeExplores</span>
+        </div>
+      </div>
+
+      <div class="footnote">
+        <i class="fas fa-info-circle"></i> Prices subject to change. Rates are estimated per person based on twin-sharing, availability, and exchange rates.
+      </div>
+
+    </div> <!-- end scroll-content -->
+
+  </div> <!-- end pop-card -->
+
+</div> <!-- end mainContent -->
 
 <!-- ===== MODALS ===== -->
 
@@ -1109,7 +1280,7 @@
   </div>
 </div>
 
-<!-- DAY 1 - UPDATED with N Seoul Tower image, link, and Han River Cruise -->
+<!-- DAY 1 -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1142,7 +1313,7 @@
   </div>
 </div>
 
-<!-- DAY 2 - UPDATED ITINERARY with Italia Village image -->
+<!-- DAY 2 -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1182,7 +1353,7 @@
   </div>
 </div>
 
-<!-- DAY 4 - UPDATED IMAGES -->
+<!-- DAY 4 -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1316,7 +1487,142 @@
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-  // Modal functions
+  // ===== CHERRY BLOSSOM PETALS (Canvas) =====
+  (function() {
+    const canvas = document.getElementById('petalCanvas');
+    const ctx = canvas.getContext('2d');
+    let petals = [];
+    let animationId = null;
+    let width, height;
+
+    function resizeCanvas() {
+      const splash = document.getElementById('splashScreen');
+      width = splash.offsetWidth;
+      height = splash.offsetHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    class Petal {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height - height;
+        this.size = 6 + Math.random() * 12;
+        this.speedY = 1 + Math.random() * 2.5;
+        this.speedX = -0.5 + Math.random() * 1;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = -0.02 + Math.random() * 0.04;
+        this.opacity = 0.6 + Math.random() * 0.4;
+        this.color = `hsla(340, 80%, 75%, ${this.opacity})`;
+        this.wobble = Math.random() * 10;
+        this.wobbleSpeed = 0.02 + Math.random() * 0.03;
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.x += Math.sin(this.wobble) * 0.8 + this.speedX;
+        this.wobble += this.wobbleSpeed;
+        this.rotation += this.rotationSpeed;
+
+        if (this.y > height + 20) {
+          this.y = -20;
+          this.x = Math.random() * width;
+        }
+        if (this.x < -20) this.x = width + 20;
+        if (this.x > width + 20) this.x = -20;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = this.color;
+
+        // Draw a simple petal shape (rounded ellipse)
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.size * 0.6, this.size * 0.4, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Add a small highlight
+        ctx.fillStyle = `rgba(255, 255, 255, 0.3)`;
+        ctx.beginPath();
+        ctx.ellipse(-this.size * 0.2, -this.size * 0.1, this.size * 0.25, this.size * 0.15, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+    }
+
+    function initPetals(count = 80) {
+      petals = [];
+      for (let i = 0; i < count; i++) {
+        const petal = new Petal();
+        petal.y = Math.random() * height;
+        petals.push(petal);
+      }
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, width, height);
+      petals.forEach(petal => {
+        petal.update();
+        petal.draw();
+      });
+      animationId = requestAnimationFrame(animatePetals);
+    }
+
+    function startPetals() {
+      resizeCanvas();
+      initPetals(100);
+      if (animationId) cancelAnimationFrame(animationId);
+      animatePetals();
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initPetals(100);
+    });
+
+    // Start when page loads
+    window.addEventListener('load', () => {
+      setTimeout(startPetals, 100);
+    });
+
+    // Also start if DOM is already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(startPetals, 100);
+    }
+
+    // Expose for splash dismissal (optional cleanup)
+    window.stopPetals = function() {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    };
+  })();
+
+  // ===== SPLASH DISMISS =====
+  function dismissSplash() {
+    const splash = document.getElementById('splashScreen');
+    const main = document.getElementById('mainContent');
+
+    // Stop petal animation
+    if (window.stopPetals) window.stopPetals();
+
+    // Hide splash with transition
+    splash.classList.add('hidden');
+
+    // Show main content
+    main.classList.add('visible');
+
+    // Re-enable body scroll
+    document.body.style.overflow = 'auto';
+  }
+
+  // ===== MODAL FUNCTIONS =====
   function openModal(id) {
     document.getElementById(id).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1339,7 +1645,7 @@
     document.body.style.overflow = 'hidden';
   }
 
-  // About Me functions
+  // About Me
   function openAbout() {
     document.getElementById('aboutOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
