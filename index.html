@@ -423,7 +423,7 @@
       letter-spacing: 0.2px;
     }
 
-    /* ===== DATE & PRICE ===== */
+    /* ===== DATE & PRICE - with clickable price ===== */
     .header-info-center {
       display: flex;
       flex-wrap: wrap;
@@ -445,6 +445,11 @@
       box-shadow: 0 4px 0 #c52155;
       font-family: 'Montserrat', sans-serif;
       white-space: nowrap;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .date-badge-compact:hover {
+      transform: scale(1.05);
     }
 
     .price-compact {
@@ -459,6 +464,133 @@
       text-align: center;
       font-family: 'Montserrat', sans-serif;
       white-space: nowrap;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .price-compact:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== PARTICIPANTS MODAL ===== */
+    .participants-modal-body {
+      padding: 18px 24px 24px;
+      overflow-x: auto;
+    }
+    .participants-modal-body .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .participants-modal-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 420px;
+    }
+    .participants-modal-body table th {
+      background: #ffe28f;
+      color: #1a2a6c;
+      font-weight: 800;
+      padding: 10px 12px;
+      text-align: left;
+      border: 2px solid #fd6a7a;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .participants-modal-body table td {
+      padding: 10px 12px;
+      border: 2px solid #fd6a7a;
+      font-weight: 600;
+      color: #3e2416;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .participants-modal-body table tr:nth-child(even) td {
+      background: rgba(255, 247, 234, 0.7);
+    }
+    .participants-modal-body .participant-note {
+      margin-top: 14px;
+      background: #fbeba4;
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #5a3a2a;
+      border-left: 4px solid #d94f7a;
+    }
+    .participants-modal-body .participant-note i {
+      color: #d94f7a;
+      margin-right: 8px;
+    }
+
+    /* ===== FLIGHT DETAILS MODAL ===== */
+    .flight-modal-body {
+      padding: 18px 24px 24px;
+    }
+    .flight-modal-body .flight-card {
+      background: #f8f0e8;
+      border-radius: 20px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border-left: 6px solid #ffc44f;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .flight-modal-body .flight-card:last-child {
+      margin-bottom: 0;
+    }
+    .flight-modal-body .flight-card .flight-no {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.3rem;
+      color: #1a2a6c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .flight-modal-body .flight-card .flight-no i {
+      color: #ffc44f;
+      font-size: 1.5rem;
+    }
+    .flight-modal-body .flight-card .flight-route {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 16px;
+      margin-top: 8px;
+      padding: 8px 0;
+      border-top: 1px dashed #d4925a;
+      border-bottom: 1px dashed #d4925a;
+    }
+    .flight-modal-body .flight-card .flight-route .leg {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .flight-modal-body .flight-card .flight-route .leg .time {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #1a2a6c;
+    }
+    .flight-modal-body .flight-card .flight-route .leg .airport {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #5a3a2a;
+    }
+    .flight-modal-body .flight-card .flight-route .arrow-icon {
+      color: #d94f7a;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .flight-modal-body .flight-card .flight-type {
+      display: inline-block;
+      background: #ffc44f;
+      color: #1a2a6c;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 14px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
     }
 
     /* ===== INCLUSIONS ===== */
@@ -1152,6 +1284,12 @@
       .tours-modal-body { padding: 14px 16px 18px; }
       .tours-modal-body ul li { font-size: 0.85rem; padding: 5px 0 5px 24px; }
       .tours-modal-body h3 { font-size: 1rem; }
+      .flight-modal-body { padding: 14px 16px 18px; }
+      .flight-modal-body .flight-card .flight-no { font-size: 1.1rem; }
+      .flight-modal-body .flight-card .flight-route .leg .time { font-size: 0.95rem; }
+      .participants-modal-body { padding: 14px 16px 18px; }
+      .participants-modal-body table { font-size: 0.8rem; min-width: 320px; }
+      .participants-modal-body table th, .participants-modal-body table td { padding: 6px 8px; }
 
       /* Splash responsive */
       #splashScreen .splash-title { font-size: 2.2rem; }
@@ -1178,6 +1316,8 @@
       .countdown-box .num { font-size: 1.2rem; }
       .main-countdown .cd-box { padding: 2px 6px; min-width: 36px; }
       .main-countdown .cd-box .num { font-size: 0.9rem; }
+      .participants-modal-body table { font-size: 0.7rem; min-width: 280px; }
+      .participants-modal-body table th, .participants-modal-body table td { padding: 4px 6px; }
     }
   </style>
 </head>
@@ -1250,10 +1390,14 @@
         </div>
       </div>
 
-      <!-- DATE & PRICE -->
+      <!-- DATE & PRICE - Clickable date opens flight modal, clickable price opens participants -->
       <div class="header-info-center">
-        <div class="date-badge-compact"><i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026</div>
-        <div class="price-compact">₱30,000 per pax *</div>
+        <div class="date-badge-compact" onclick="openFlightModal()">
+          <i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026 <i class="fas fa-plane" style="font-size:0.7rem; margin-left:6px;"></i>
+        </div>
+        <div class="price-compact" onclick="openParticipantsModal()">
+          ₱30,000 per pax * <i class="fas fa-users" style="font-size:0.7rem; margin-left:6px;"></i>
+        </div>
       </div>
     </div>
 
@@ -1296,8 +1440,8 @@
           <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
         </div>
         <div class="day-preview">
-          <span><i class="fas fa-clock"></i> 7:00 AM Tour</span>
-          <span><i class="fas fa-map-pin"></i> Meet 8:00 AM</span>
+          <span><i class="fas fa-plane-arrival"></i> 5:20 AM Arrival</span>
+          <span><i class="fas fa-luggage"></i> Luggage Drop</span>
           <span><i class="fas fa-flag-checkered"></i> End 6:00 PM</span>
         </div>
       </div>
@@ -1387,6 +1531,106 @@
 
 </div> <!-- end mainContent -->
 
+<!-- ===== FLIGHT DETAILS MODAL ===== -->
+<div class="modal-overlay" id="flightModal" onclick="closeModalOutside(event, 'flightModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="modal-title">✈️ Flight Details</span>
+      <button class="modal-close" onclick="closeModal('flightModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="flight-modal-body">
+      <!-- OUTBOUND FLIGHT -->
+      <div class="flight-card">
+        <div class="flight-no">
+          <i class="fas fa-plane"></i> FLIGHT NO. 5J 186
+          <span style="font-size:0.7rem; background:#ffc44f; color:#1a2a6c; padding:2px 12px; border-radius:30px; margin-left:auto;">Outbound</span>
+        </div>
+        <div class="flight-route">
+          <div class="leg">
+            <div class="time">20 Aug 2026 12:10 AM</div>
+            <div class="airport"><i class="fas fa-plane-departure" style="color:#d94f7a; margin-right:4px;"></i> DEPARTURE</div>
+            <div class="airport" style="font-weight:700;">Manila Ninoy Aquino International Airport - Terminal 3</div>
+          </div>
+          <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+          <div class="leg" style="text-align:right;">
+            <div class="time">20 Aug 2026 05:20 AM</div>
+            <div class="airport"><i class="fas fa-plane-arrival" style="color:#28a745; margin-right:4px;"></i> ARRIVAL</div>
+            <div class="airport" style="font-weight:700;">Seoul (Incheon) Incheon International Airport - Terminal 1</div>
+          </div>
+        </div>
+        <div class="flight-type">✈️ Direct Flight · 2h 10m</div>
+      </div>
+
+      <!-- RETURN FLIGHT -->
+      <div class="flight-card" style="border-left-color:#28a745;">
+        <div class="flight-no">
+          <i class="fas fa-plane" style="transform:rotate(180deg);"></i> FLIGHT NO. 5J 185
+          <span style="font-size:0.7rem; background:#28a745; color:white; padding:2px 12px; border-radius:30px; margin-left:auto;">Return</span>
+        </div>
+        <div class="flight-route">
+          <div class="leg">
+            <div class="time">24 Aug 2026 06:35 AM</div>
+            <div class="airport"><i class="fas fa-plane-departure" style="color:#d94f7a; margin-right:4px;"></i> DEPARTURE</div>
+            <div class="airport" style="font-weight:700;">Seoul (Incheon) Incheon International Airport - Terminal 1</div>
+          </div>
+          <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+          <div class="leg" style="text-align:right;">
+            <div class="time">24 Aug 2026 09:45 AM</div>
+            <div class="airport"><i class="fas fa-plane-arrival" style="color:#28a745; margin-right:4px;"></i> ARRIVAL</div>
+            <div class="airport" style="font-weight:700;">Manila Ninoy Aquino International Airport - Terminal 3</div>
+          </div>
+        </div>
+        <div class="flight-type">✈️ Direct Flight · 3h 10m</div>
+      </div>
+
+      <div style="margin-top:16px; text-align:center; font-size:0.8rem; color:#888;">
+        <i class="fas fa-info-circle"></i> Flight times are in local time (Manila / Seoul)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PARTICIPANTS MODAL ===== -->
+<div class="modal-overlay" id="participantsModal" onclick="closeModalOutside(event, 'participantsModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="modal-title">👤 Participants</span>
+      <button class="modal-close" onclick="closeModal('participantsModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="participants-modal-body">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Passport ID</th>
+              <th>Passport Exp Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GRACE FLORENDA</td>
+              <td>PAGADUAN</td>
+              <td>P1742187C</td>
+              <td>September 21, 2032</td>
+            </tr>
+            <tr>
+              <td>KAYE DEXEREE</td>
+              <td>LAZO</td>
+              <td>P8350616B</td>
+              <td>November 30, 2031</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="participant-note">
+        <i class="fas fa-info-circle"></i> Please ensure all passport details are correct and valid for travel.
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== MODALS ===== -->
 
 <!-- DAY 0 -->
@@ -1412,6 +1656,8 @@
       <button class="modal-close" onclick="closeModal('modal-day1')"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
+      <div class="time-activity-row"><span class="time-badge">5:20 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival to Incheon International Airport</span></div>
+      <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-luggage"></i> Early Hotel Luggage Drop</span></div>
       <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-bus"></i> Seoul City Tour</span></div>
       <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Myeongdong Subway Station Exit 9</span></div>
       <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhdp59i-0FGa3mV4VkCZ9Y3TOtMKlb41Zrm0xWXEZ5Dg&s=10');"></span> Jogyesa Temple</span></div>
@@ -1449,7 +1695,7 @@
   </div>
 </div>
 
-<!-- DAY 3 - LEISURE DAY (UPDATED IMAGES) -->
+<!-- DAY 3 - LEISURE DAY -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1629,9 +1875,10 @@
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-  // ===== COUNTDOWN TIMER =====
+  // ===== COUNTDOWN TIMER - Target: August 20, 2026 12:20 AM Manila Time (UTC+8) =====
   function updateCountdown() {
-    const targetDate = new Date('2026-08-19T00:00:00').getTime();
+    // Manila time is UTC+8
+    const targetDate = new Date('2026-08-20T00:20:00+08:00').getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
@@ -1665,6 +1912,18 @@
 
   setInterval(updateCountdown, 1000);
   updateCountdown();
+
+  // ===== FLIGHT MODAL =====
+  function openFlightModal() {
+    document.getElementById('flightModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // ===== PARTICIPANTS MODAL =====
+  function openParticipantsModal() {
+    document.getElementById('participantsModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
   // ===== CHERRY BLOSSOM PETALS (Canvas) =====
   (function() {
