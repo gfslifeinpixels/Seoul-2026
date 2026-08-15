@@ -700,6 +700,22 @@
       box-shadow: 0 3px 0 #0f1a44;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .day-tour-name:hover {
+      transform: scale(1.03);
+      background: #2a3a8c;
+    }
+    .day-tour-name a {
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .day-tour-name.special {
@@ -1431,11 +1447,15 @@
         </div>
       </div>
 
-      <!-- DAY 1 - CITY TOUR -->
+      <!-- DAY 1 - SEOUL CITY TOUR (UPDATED with link) -->
       <div class="day-card" onclick="openModal('modal-day1')">
         <div class="day-header">
           <span class="day-num">DAY 1</span>
-          <span class="day-tour-name"><i class="fas fa-city"></i> City Tour</span>
+          <span class="day-tour-name">
+            <a href="https://drive.google.com/file/d/1Rw3SKjMBY9UlAduEEdJJqCVXzynyShBa/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-link"></i> SEOUL CITY TOUR
+            </a>
+          </span>
           <span class="day-date-tag">Thu, Aug 20</span>
           <span class="click-hint"><i class="fas fa-hand-pointer"></i> open</span>
         </div>
@@ -1535,7 +1555,7 @@
 <div class="modal-overlay" id="flightModal" onclick="closeModalOutside(event, 'flightModal')">
   <div class="modal-content">
     <div class="modal-header">
-      <span class="modal-title">✈️ Flight Details (LW4DHX)</span>
+      <span class="modal-title">✈️ Flight Details</span>
       <button class="modal-close" onclick="closeModal('flightModal')"><i class="fas fa-times"></i></button>
     </div>
     <div class="flight-modal-body">
@@ -1558,7 +1578,7 @@
             <div class="airport" style="font-weight:700;">Seoul (Incheon) Incheon International Airport - Terminal 1</div>
           </div>
         </div>
-        <div class="flight-type">✈️ Direct Flight · 4h 10m</div>
+        <div class="flight-type">✈️ Direct Flight · 2h 10m</div>
       </div>
 
       <!-- RETURN FLIGHT -->
@@ -1580,7 +1600,7 @@
             <div class="airport" style="font-weight:700;">Manila Ninoy Aquino International Airport - Terminal 3</div>
           </div>
         </div>
-        <div class="flight-type">✈️ Direct Flight · 4h 10m</div>
+        <div class="flight-type">✈️ Direct Flight · 3h 10m</div>
       </div>
 
       <div style="margin-top:16px; text-align:center; font-size:0.8rem; color:#888;">
@@ -1642,13 +1662,13 @@
     </div>
     <div class="modal-body">
       <div class="time-activity-row"><span class="time-badge">9:20 PM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Airport Baggage Checkin</span></div>
-      <div class="time-activity-row"><span class="time-badge">11:10 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding – Departure @ 12:10 AM (Aug 20)</span></div>
+      <div class="time-activity-row"><span class="time-badge">11:20 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding – Departure @ 12:20 AM (Aug 20)</span></div>
       <div class="alert-note"><i class="fas fa-plane"></i> Flight departs early Thursday morning</div>
     </div>
   </div>
 </div>
 
-<!-- DAY 1 - CITY TOUR -->
+<!-- DAY 1 - SEOUL CITY TOUR -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1658,7 +1678,13 @@
     <div class="modal-body">
       <div class="time-activity-row"><span class="time-badge">5:20 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival to Incheon International Airport</span></div>
       <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-luggage"></i> Early Hotel Luggage Drop</span></div>
-      <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-bus"></i> SEOUL CITY TOUR</span></div>
+      <div class="time-activity-row">
+        <span class="time-badge" style="background:#ffe28f; border-color:#b8602a;">7:00 AM</span>
+        <span class="activity-text">
+          <i class="fas fa-link"></i>
+          <a href="https://drive.google.com/file/d/1Rw3SKjMBY9UlAduEEdJJqCVXzynyShBa/view?usp=sharing" target="_blank" class="map-link">SEOUL CITY TOUR</a>
+        </span>
+      </div>
       <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Myeongdong Subway Station Exit 9</span></div>
       <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhdp59i-0FGa3mV4VkCZ9Y3TOtMKlb41Zrm0xWXEZ5Dg&s=10');"></span> Jogyesa Temple</span></div>
       <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e6/Gyeongbokgung_Palace_covered_with_snow_%284271054092%29.jpg');"></span> Gyeongbokgung Palace</span></div>
@@ -1682,7 +1708,7 @@
       <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
-      <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://drive.google.com/file/d/1p8aPvlTwPiCz10N3kDvGyhK8uAS0_yXW/view?usp=drive_link" target="_blank" class="map-link">Nami Island Tour (via Klook)</a></span></div>
+      <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-link"></i> <a href="https://drive.google.com/file/d/1p8aPvlTwPiCz10N3kDvGyhK8uAS0_yXW/view?usp=drive_link" target="_blank" class="map-link">NAMI ISLAND TOUR</a></span></div>
       <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Namsan Yejang Bus Terminal, Myeongdong Station Exit 1</span></div>
       <div class="time-activity-row"><span class="time-badge">9:50 AM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1723710086/awvzamvzuongpfdjj656.jpg');"></span> Alpaca World 🦙</span></div>
       <div class="time-activity-row"><span class="time-badge">12:30 PM</span> <span class="activity-text"><span class="mini-img-modal" style="background-image: url('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1751262716/ieyuoar2uapqcygjh8ch.jpg');"></span> Nami Island</span></div>
