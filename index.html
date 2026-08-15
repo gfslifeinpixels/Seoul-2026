@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>✨ DIY SEOUL · pop infographic by Grace ✨</title>
-  <!-- Google Fonts: modern + fun -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ===== RESET & BASE ===== */
+    
     * {
       margin: 0;
       padding: 0;
@@ -46,7 +46,6 @@
       100% { background-position: 100% 100%; }
     }
 
-    /* ===== SPLASH SCREEN (Cherry Blossom) ===== */
     #splashScreen {
       position: fixed;
       inset: 0;
@@ -110,7 +109,6 @@
       color: #ff6b9d;
     }
 
-    /* ===== COUNTDOWN ===== */
     .countdown-container {
       display: flex;
       justify-content: center;
@@ -145,7 +143,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ===== CHECKLIST STYLING ===== */
     .checklist-container {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(8px);
@@ -229,7 +226,6 @@
       50% { opacity: 1; transform: scale(1.05); }
     }
 
-    /* ===== CHERRY BLOSSOM PETALS (Canvas) ===== */
     #petalCanvas {
       position: absolute;
       top: 0;
@@ -240,7 +236,6 @@
       pointer-events: none;
     }
 
-    /* ===== MAIN CONTENT (hidden initially) ===== */
     #mainContent {
       opacity: 0;
       transition: opacity 1s ease;
@@ -267,24 +262,12 @@
       z-index: 2;
       margin: 6px 0 20px;
     }
-
-    .sticky-title, .header, .inclusion-strip, .day-card, .footer-modern, .modal-content {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(4px);
-    }
-
-    .sticky-title {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    @keyframes float {
+@keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-6px); }
       100% { transform: translateY(0px); }
     }
 
-    /* ===== STICKY TITLE ===== */
     .sticky-title {
       position: sticky;
       top: 0;
@@ -311,7 +294,6 @@
       letter-spacing: -0.5px;
     }
 
-    /* ===== MAIN COUNTDOWN (top center of main page) ===== */
     .main-countdown {
       text-align: center;
       padding: 6px 0 2px 0;
@@ -360,7 +342,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* ===== HEADER ===== */
     .header {
       background: rgba(255, 179, 198, 0.92);
       padding: 14px 20px 12px 20px;
@@ -423,7 +404,6 @@
       letter-spacing: 0.2px;
     }
 
-    /* ===== DATE & PRICE - with clickable price ===== */
     .header-info-center {
       display: flex;
       flex-wrap: wrap;
@@ -471,7 +451,6 @@
       transform: scale(1.05);
     }
 
-    /* ===== PARTICIPANTS MODAL ===== */
     .participants-modal-body {
       padding: 18px 24px 24px;
       overflow-x: auto;
@@ -522,7 +501,6 @@
       margin-right: 8px;
     }
 
-    /* ===== FLIGHT DETAILS MODAL ===== */
     .flight-modal-body {
       padding: 18px 24px 24px;
     }
@@ -593,7 +571,6 @@
       margin-top: 6px;
     }
 
-    /* ===== INCLUSIONS ===== */
     .inclusion-strip {
       background: rgba(193, 240, 255, 0.92);
       border-radius: 40px;
@@ -647,7 +624,6 @@
       color: #d94f7a;
     }
 
-    /* ===== DAY CARDS ===== */
     .scroll-content {
       padding-top: 2px;
     }
@@ -764,7 +740,6 @@
       border: 2px solid #bb651e;
     }
 
-    /* ===== MODAL ===== */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -930,7 +905,6 @@
       font-size: 0.9rem;
     }
 
-    /* ===== TOURS MODAL (Klook) ===== */
     .tours-modal-body {
       padding: 18px 24px 24px;
     }
@@ -1097,7 +1071,6 @@
       color: #d94f7a;
     }
 
-    /* ===== ABOUT ME OVERLAY ===== */
     .about-overlay {
       display: none;
       position: fixed;
@@ -1258,7 +1231,6 @@
       color: #ff6b9d;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
       body { padding: 6px; }
       .pop-card { padding: 16px 12px 14px; border-radius: 30px; }
@@ -1307,7 +1279,6 @@
       .participants-modal-body table { font-size: 0.8rem; min-width: 320px; }
       .participants-modal-body table th, .participants-modal-body table td { padding: 6px 8px; }
 
-      /* Splash responsive */
       #splashScreen .splash-title { font-size: 2.2rem; }
       #splashScreen .splash-sub { font-size: 1rem; }
       .checklist-container { padding: 18px 16px; }
@@ -1339,13 +1310,11 @@
 </head>
 <body>
 
-<!-- ===== SPLASH SCREEN with Cherry Blossom Effect ===== -->
 <div id="splashScreen" onclick="dismissSplash()">
   <canvas id="petalCanvas"></canvas>
   <div class="splash-content">
     <div class="splash-title">🌸 Ready to Explore Seoul?</div>
 
-    <!-- Countdown on Splash -->
     <div class="countdown-container" id="splashCountdown">
       <div class="countdown-box"><div class="num" id="splashDays">00</div><div class="label">Days</div></div>
       <div class="countdown-box"><div class="num" id="splashHours">00</div><div class="label">Hours</div></div>
@@ -1355,7 +1324,6 @@
 
     <div class="splash-sub"><i class="fas fa-heart"></i> Summer in Seoul · August 2026 <i class="fas fa-heart"></i></div>
 
-    <!-- CHECKLIST with e-Arrival Card -->
     <div class="checklist-container">
       <h3><i class="fas fa-check-circle"></i> Travel Checklist</h3>
       <div class="checklist-item"><i class="fas fa-passport check-icon"></i> Passport & Visa Ready</div>
@@ -1372,19 +1340,16 @@
   </div>
 </div>
 
-<!-- ===== MAIN CONTENT (hidden until splash is dismissed) ===== -->
 <div id="mainContent">
 
   <div class="pop-card">
 
-    <!-- STICKY TITLE -->
     <div class="sticky-title">
       <div class="title-only">
         <h1>🇰🇷 DIY SEOUL LAND ARRANGEMENT</h1>
       </div>
     </div>
 
-    <!-- ===== MAIN COUNTDOWN (top center) ===== -->
     <div class="main-countdown">
       <div class="countdown-label"><i class="fas fa-clock"></i> Countdown to Seoul</div>
       <div class="countdown-boxes" id="mainCountdown">
@@ -1395,7 +1360,6 @@
       </div>
     </div>
 
-    <!-- HEADER -->
     <div class="header">
       <div class="header-top">
         <div class="header-title-group">
@@ -1406,7 +1370,6 @@
         </div>
       </div>
 
-      <!-- DATE & PRICE - Clickable date opens flight modal, clickable price opens participants -->
       <div class="header-info-center">
         <div class="date-badge-compact" onclick="openFlightModal()">
           <i class="fas fa-calendar-alt"></i> Aug 20 – 24, 2026 <i class="fas fa-plane" style="font-size:0.7rem; margin-left:6px;"></i>
@@ -1417,7 +1380,6 @@
       </div>
     </div>
 
-    <!-- INCLUSIONS -->
     <div class="inclusion-strip">
       <div class="inc-item">
         <a href="https://drive.google.com/file/d/1I4ML1Z93j3AXPq6N4DP3r-eQX4BYelsd/view?usp=sharing" target="_blank">
@@ -1430,10 +1392,8 @@
       </div>
     </div>
 
-    <!-- SCROLLABLE CONTENT -->
     <div class="scroll-content">
 
-      <!-- DAY 0 -->
       <div class="day-card" onclick="openModal('modal-day0')">
         <div class="day-header">
           <span class="day-num">DAY 0</span>
@@ -1447,7 +1407,6 @@
         </div>
       </div>
 
-      <!-- DAY 1 - CITY TOUR -->
       <div class="day-card" onclick="openModal('modal-day1')">
         <div class="day-header">
           <span class="day-num">DAY 1</span>
@@ -1465,7 +1424,6 @@
         </div>
       </div>
 
-      <!-- DAY 2 - NAMI ISLAND -->
       <div class="day-card" onclick="openModal('modal-day2')">
         <div class="day-header">
           <span class="day-num">DAY 2</span>
@@ -1480,7 +1438,6 @@
         </div>
       </div>
 
-      <!-- DAY 3 - LEISURE DAY -->
       <div class="day-card" onclick="openModal('modal-day3')">
         <div class="day-header">
           <span class="day-num">DAY 3</span>
@@ -1495,7 +1452,6 @@
         </div>
       </div>
 
-      <!-- DAY 4 - GANGNAM EXPERIENCE -->
       <div class="day-card" onclick="openModal('modal-day4')">
         <div class="day-header">
           <span class="day-num">DAY 4</span>
@@ -1511,7 +1467,6 @@
         </div>
       </div>
 
-      <!-- DAY 5 - DEPARTURE -->
       <div class="day-card" onclick="openModal('modal-day5')">
         <div class="day-header">
           <span class="day-num">DAY 5</span>
@@ -1525,7 +1480,6 @@
         </div>
       </div>
 
-      <!-- FOOTER -->
       <div class="footer-modern">
         <div class="footer-contact">
           <span style="font-size:0.85rem;">📩 Questions? contact:</span>
@@ -1544,13 +1498,12 @@
         <i class="fas fa-info-circle"></i> Prices subject to change. Rates are estimated per person based on twin-sharing, availability, and exchange rates.
       </div>
 
-    </div> <!-- end scroll-content -->
+    </div> 
 
-  </div> <!-- end pop-card -->
+  </div> 
 
-</div> <!-- end mainContent -->
+</div> 
 
-<!-- ===== FLIGHT DETAILS MODAL ===== -->
 <div class="modal-overlay" id="flightModal" onclick="closeModalOutside(event, 'flightModal')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1558,7 +1511,7 @@
       <button class="modal-close" onclick="closeModal('flightModal')"><i class="fas fa-times"></i></button>
     </div>
     <div class="flight-modal-body">
-      <!-- OUTBOUND FLIGHT -->
+      
       <div class="flight-card">
         <div class="flight-no">
           <i class="fas fa-plane"></i> FLIGHT NO. 5J 186
@@ -1580,7 +1533,6 @@
         <div class="flight-type">✈️ Direct Flight · 2h 10m</div>
       </div>
 
-      <!-- RETURN FLIGHT -->
       <div class="flight-card" style="border-left-color:#28a745;">
         <div class="flight-no">
           <i class="fas fa-plane" style="transform:rotate(180deg);"></i> FLIGHT NO. 5J 185
@@ -1609,7 +1561,6 @@
   </div>
 </div>
 
-<!-- ===== PARTICIPANTS MODAL ===== -->
 <div class="modal-overlay" id="participantsModal" onclick="closeModalOutside(event, 'participantsModal')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1650,9 +1601,6 @@
   </div>
 </div>
 
-<!-- ===== MODALS ===== -->
-
-<!-- DAY 0 -->
 <div class="modal-overlay" id="modal-day0" onclick="closeModalOutside(event, 'modal-day0')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1667,7 +1615,6 @@
   </div>
 </div>
 
-<!-- DAY 1 - SEOUL CITY TOUR -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1699,7 +1646,6 @@
   </div>
 </div>
 
-<!-- DAY 2 - NAMI ISLAND -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1720,7 +1666,6 @@
   </div>
 </div>
 
-<!-- DAY 3 - LEISURE DAY -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1761,7 +1706,6 @@
   </div>
 </div>
 
-<!-- DAY 4 - GANGNAM EXPERIENCE -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1785,7 +1729,6 @@
   </div>
 </div>
 
-<!-- DAY 5 - DEPARTURE -->
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1801,7 +1744,6 @@
   </div>
 </div>
 
-<!-- ===== TOURS MODAL (Klook) ===== -->
 <div class="modal-overlay" id="toursModal" onclick="closeModalOutside(event, 'toursModal')">
   <div class="modal-content">
     <div class="modal-header">
@@ -1838,7 +1780,6 @@
   </div>
 </div>
 
-<!-- ===== ABOUT ME OVERLAY ===== -->
 <div class="about-overlay" id="aboutOverlay" onclick="closeAboutOutside(event)">
   <div class="about-content">
     <div class="about-header">
@@ -1898,7 +1839,6 @@
   </div>
 </div>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
   // ===== COUNTDOWN TIMER - Target: August 20, 2026 12:20 AM Manila Time (UTC+8) =====
   function updateCountdown() {
